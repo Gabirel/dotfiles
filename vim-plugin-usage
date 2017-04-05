@@ -1,0 +1,134 @@
+#############NERD Commentor Start#################
+[count]|<Leader>|cc |NERDComComment|
+Comment out the current line or text selected in visual mode.
+
+count]|<Leader>|cn |NERDComNestedComment|
+Same as |<Leader>|cc but forces nesting.
+
+[count]|<Leader>|c<space> |NERDComToggleComment|                                                                                                                                         
+Toggles the comment state of the selected line(s). If the topmost selected
+ line is commented, all selected lines are uncommented and vice versa.
+ 
+ [count]|<Leader>|cm |NERDComMinimalComment|
+ Comments the given lines using only one set of multipart delimiters.
+ 
+ [count]|<Leader>|ci |NERDComInvertComment|
+ Toggles the comment state of the selected line(s) individually.
+ 
+ [count]|<Leader>|cs |NERDComSexyComment|
+ Comments out the selected lines ``sexily''
+ 
+ [count]|<Leader>|cy |NERDComYankComment|
+ Same as |<Leader>|cc except that the commented line(s) are yanked first.
+ 
+ |<Leader>|c$ |NERDComEOLComment|
+ Comments the current line from the cursor to the end of line.
+ 
+ |<Leader>|cA |NERDComAppendComment|
+ Adds comment delimiters to the end of line and goes into insert mode between them.
+ 
+ |<Leader>|ca |NERDComAltDelim|
+ Switches to the alternative set of delimiters.
+ 
+ [count]|<Leader>|cu |NERDComUncommentLine|
+Uncomments the selected line(s).
+#############NERD Commentor END##################
+
+
+
+#############NERD Tree Start######################
+:NERDTree /home/marty/vim7/src
+? (for help)
+#############NERD Tree End#######################
+
+
+
+#############python-mode Start#####################
+`<leader>r`	Run python code
+`<leader>b`	Add/remove breakpoints
+`<C-c>g`		RopeGotoDefinition
+`F9`		:PymodeLintToggle
+`F10`		:PymodeLintAuto
+================  ============================
+Key               Command
+================  ============================
+[[                Jump to previous class or function (normal, visual, operator modes)
+]]                Jump to next class or function  (normal, visual, operator modes)
+[M                Jump to previous class or method (normal, visual, operator modes)                                                                                                       
+]M                Jump to next class or method (normal, visual, operator modes)
+aC                Select a class. Ex: vaC, daC, yaC, caC (normal, operator modes)
+iC                Select inner class. Ex: viC, diC, yiC, ciC (normal, operator modes)
+aM                Select a function or method. Ex: vaM, daM, yaM, caM (normal, operator modes)
+iM                Select inner function or method. Ex: viM, diM, yiM, ciM (normal, operator modes)
+#############python-mode End######################
+
+
+
+#############syntastic Start########################
+:Errors
+#############syntastic End#########################
+
+
+
+#############tagbar Start#########################
+`F8`	:TagbarToggle
+#############tagbar  End##########################
+
+
+
+#############tern-for-vim Start######################
+`TernDef`: Jump to the definition of the thing under the cursor.
+`TernDoc`: Look up the documentation of something.
+`TernType`: Find the type of the thing under the cursor.
+`TernRefs`: Show all references to the variable or property under the
+cursor.
+`TernRename`: Rename the variable under the cursor.
+
+*<LocalLeader>tD*   |:TernDoc|
+*<LocalLeader>tb*   |:TernDocBrowse|
+*<LocalLeader>tt*   |:TernType|
+*<LocalLeader>td*   |:TernDef|
+*<LocalLeader>tpd*  |:TernDefPreview|
+*<LocalLeader>tsd*  |:TernDefSplit|
+*<LocalLeader>ttd*  |:TernDefTab|
+*<LocalLeader>tr*   |:TernRefs|
+*<LocalLeader>tR*   |:TernRename
+#############tern-for-vim End#######################
+
+
+#############vim-easymotion Start####################
+`<leader><leader>w`	move easily
+`<leader><leader>fo`	find 'o'; press `b` to jump to second one
+#############vim-easymotion End#####################
+
+
+#############vim-javacomplete2 Start##################
+`F4`	JavaComplete-Imports-AddSmart
+`F5`	JavaComplete-Imports-AddMissing
+`F6`	JavaComplete-Imports-RemoveUnused
+#############vim-javacomplete2 End###################
+
+
+#############vim-surround Start######################
+`cs"'`		change `"` into `'`
+`cs'<q>`		change `'` into `<q>xxx</q>`
+`cst"`		this will delete `<q></q>` and become `"xxx"`
+`ds"`		remove the delimiters entirely
+`ysiw]`		Now with the cursor on "Hello", press `ysiw]` (`iw` is a text object).
+			[Hello] world!
+`cs]}`		make that braces and add some space (use `}` instead of `{` for no space):
+`yssb` or `yss)`	wrap the entire line in parentheses with
+`ds{ds)`		Revert to the original text and it is: Hello World!
+`ysiw<em>`	Emphasize hello: <em>Hello</em> world!
+Finally, let's try out visual mode. Press a capital V (for linewise visual mode) followed by `S<p class="important">`.
+<p class="important">
+	<em>Hello</em> world!
+</p>
+#############vim-surround End######################
+
+
+#############YouCompleteMe Start###################
+`<leader>gl`			:YcmCompleter GoToDeclaration
+`<leader>gf`			:YcmCompleter GoToDefinition
+`<leader>gg`			:YcmCompleter GoToDefinitionElseDeclaration
+#############YouCompleteMe End####################
