@@ -1,6 +1,4 @@
 # dotfiles
-This is my dotfiles.
-
 
 Here's the structure of dotfiles:
 - .config
