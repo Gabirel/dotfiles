@@ -1,9 +1,17 @@
 # dotfiles
 This is my dotfiles.
 
-- tmux
-- SpaceVim
-- binary tools or shell-like tools
+
+Here's the structure of dotfiles:
+- .config
+    - fcitx
+- .SpaceVim.d
+    - init.vim
+- .wine
+    - DosBox-0.74.conf
+- etc
+    - hosts
+    - tmux.conf
+    - vimrc
+- tools
     - viewqr
-- wine
-- fcitx
