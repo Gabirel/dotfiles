@@ -3,5 +3,5 @@ This is my dotfiles.
 
 - tmux
 - SpaceVim
-- shell tools
+- binary tools or shell-like tools
 - wine
