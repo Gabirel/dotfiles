@@ -1,5 +1,7 @@
 # dotfiles
-This is my config files.  For our and my own convenience
+This is my dotfiles.
 
+- tmux
+- SpaceVim
+- shell tools
 
-URL: github.com/Gabirel/dotfiles
