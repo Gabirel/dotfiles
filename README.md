@@ -14,6 +14,8 @@ Here's the structure of dotfiles:
 
 - scripts
     - updatehosts.sh
+        This is for updating /etc/hosts
     - ledcontrol.sh
+        This is for controlling LED of keyboard by `Scroll Lock`
 - tools
     - viewqr
