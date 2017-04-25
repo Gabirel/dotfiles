@@ -11,5 +11,9 @@ Here's the structure of dotfiles:
     - hosts
     - tmux.conf
     - vimrc
+
+- scripts
+    - updatehosts.sh
+    - ledcontrol.sh
 - tools
     - viewqr
