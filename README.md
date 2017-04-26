@@ -13,6 +13,11 @@ Here's the structure of dotfiles:
     - vimrc
 
 - scripts
+
+    - mojoqq.pl
+
+        This is the script for webqq
+
     - updatehosts.sh
 
         This is for updating /etc/hosts
