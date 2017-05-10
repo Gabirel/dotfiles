@@ -1,8 +1,10 @@
 # dotfiles
 
 Here's the structure of dotfiles:
+
 - .config
     - fcitx
+    - fish
 - .SpaceVim.d
     - init.vim
 - .wine
@@ -11,9 +13,7 @@ Here's the structure of dotfiles:
     - hosts
     - tmux.conf
     - vimrc
-
 - scripts
-
     - mojoqq.pl
 
         This is the script for webqq
