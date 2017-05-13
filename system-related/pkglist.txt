@@ -195,6 +195,7 @@ openssh
 orage
 os-prober
 osx-arc-plus
+osx-arc-white
 p7zip
 pa-applet
 pacman
