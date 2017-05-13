@@ -14,7 +14,7 @@ Here's the structure of dotfiles:
     - vim-plugin-usage
 
 - etc
-    - hosts
+    - gemrc
     - pacman.conf
     - tmux.conf
     - vimrc
