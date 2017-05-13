@@ -319,6 +319,7 @@ xfce4-whiskermenu-plugin
 xfce4-xkb-plugin
 xfconf
 xfdesktop
+xflux
 xfsprogs
 xfwm4
 xfwm4-themes
