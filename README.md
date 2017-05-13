@@ -9,6 +9,10 @@ Here's the structure of dotfiles:
     - init.vim
 - .wine
     - DosBox-0.74.conf
+- doc
+    - backup-restore-system.md
+    - vim-plugin-usage
+
 - etc
     - hosts
     - tmux.conf
@@ -24,7 +28,11 @@ Here's the structure of dotfiles:
 
     - ledcontrol.sh
 
-        This is for controlling LED of keyboard by `Scroll Lock`
+        This is for controlling LED of keyboard by `Scroll Lock` 
+- system-related
+    - pkglist
+        
+        This is for pacman use
 
 - tools
     - viewqr
