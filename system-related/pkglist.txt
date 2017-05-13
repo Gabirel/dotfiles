@@ -233,6 +233,7 @@ samba
 sed
 shadow
 shadowsocks-qt5
+smplayer
 splix
 sqlmap
 steam-manjaro
@@ -284,7 +285,6 @@ xf86-input-libinput
 xf86-input-mouse
 xf86-input-void
 xf86-video-intel
-xfburn
 xfce4-appfinder
 xfce4-battery-plugin
 xfce4-clipman-plugin
