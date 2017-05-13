@@ -157,6 +157,7 @@ manjaro-settings-manager-notifier
 manjaro-system
 manjaro-wallpapers-17.0
 manjaro-xfce-settings
+mariadb
 mdadm
 memtest86+
 menulibre
@@ -180,6 +181,7 @@ networkmanager-openvpn
 networkmanager-pptp
 networkmanager-vpnc
 nfs-utils
+nginx
 nmap
 nodejs
 npm
@@ -203,6 +205,8 @@ pcmciautils
 pepper-flash
 perl
 perl-file-mimeinfo
+php
+php-fpm
 pidgin
 pkg-config
 poppler-data
