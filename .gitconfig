@@ -1,0 +1,13 @@
+[user]
+	email = wqq977sz@163.com
+	name = Gabriel
+[core]
+	editor = vim
+[alias]
+    s = status
+    c = commit
+    cm = commit -m
+    co = checkout
+    br = branch
+    unstage = reset HEAD --
+    last = log -1 HEAD

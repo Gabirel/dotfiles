@@ -2,6 +2,7 @@
 
 Here's the structure of dotfiles:
 
+- .gitconfig
 - .config
     - fcitx
     - fish
