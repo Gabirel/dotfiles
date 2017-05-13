@@ -6,12 +6,14 @@ alsa-utils
 android-tools
 android-udev
 archlinuxcn-keyring
+asciinema
 autoconf
 automake
 avahi
 b43-fwcutter
 bash
 binutils
+binwalk
 bison
 blackarch-keyring
 blueman
@@ -19,6 +21,7 @@ btrfs-progs
 bzip2
 cantarell-fonts
 catfish
+clang
 coreutils
 cpupower
 crda
@@ -219,6 +222,7 @@ qpdfview
 qpdfview-djvu-plugin
 qpdfview-ps-plugin
 reiserfsprogs
+remmina
 rsync
 s-nail
 samba
@@ -259,6 +263,7 @@ util-linux
 viewnior
 vlc-nightly
 wget
+whatweb
 which
 wpa_supplicant
 wps-office
