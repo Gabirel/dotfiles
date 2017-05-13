@@ -15,6 +15,7 @@ Here's the structure of dotfiles:
 
 - etc
     - hosts
+    - pacman.conf
     - tmux.conf
     - vimrc
 - scripts
