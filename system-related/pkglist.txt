@@ -194,6 +194,7 @@ openresolv
 openssh
 orage
 os-prober
+osx-arc-plus
 p7zip
 pa-applet
 pacman
@@ -331,6 +332,7 @@ xorg-utils
 xorg-xinit
 xorg-xkill
 xscreensaver
+yaourt
 yelp
 zd1211-firmware
 zsh
