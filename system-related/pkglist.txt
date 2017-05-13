@@ -240,8 +240,10 @@ thunar-archive-plugin
 thunar-media-tags-plugin
 thunar-volman
 thunderbird
+time
 tlp
 tlp-rdw
+tree
 ttf-bitstream-vera
 ttf-droid
 ttf-inconsolata
