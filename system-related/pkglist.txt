@@ -197,7 +197,6 @@ os-prober
 osx-arc-plus
 osx-arc-white
 p7zip
-pa-applet
 pacman
 pamac
 patch
@@ -305,6 +304,7 @@ xfce4-notes-plugin
 xfce4-notifyd
 xfce4-panel
 xfce4-power-manager
+xfce4-pulseaudio-plugin
 xfce4-screenshooter
 xfce4-sensors-plugin
 xfce4-session
