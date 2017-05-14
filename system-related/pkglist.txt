@@ -59,6 +59,7 @@ fcitx-qt5
 ffmpeg
 ffmpegthumbnailer
 file
+file-roller
 filesystem
 findutils
 firefox
@@ -174,6 +175,7 @@ mousepad
 mtpfs
 mugshot
 nano
+netease-cloud-music
 network-manager-applet
 networkmanager
 networkmanager-dispatcher-ntpd
