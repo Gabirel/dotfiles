@@ -270,6 +270,7 @@ unrar
 usbutils
 util-linux
 viewnior
+virtualbox
 vlc-nightly
 wget
 whatweb
