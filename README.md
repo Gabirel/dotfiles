@@ -3,6 +3,7 @@
 Here's the structure of dotfiles:
 
 - .gitconfig
+- .ideavimrc
 - .config
     - fcitx
     - fish
