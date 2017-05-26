@@ -1,0 +1,16 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontSize": 20,
+	"editor.insertSpaces": false,
+	"editor.tabCompletion": true,
+	"workbench.colorTheme": "Monokai++",
+	"files.autoSave": "afterDelay",
+	"editor.fontFamily": "'Ubuntu Mono derivative Powerline', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
+	"editor.wordWrap": "on",
+	"workbench.iconTheme": "vs-seti",
+	"vim.useSystemClipboard": true,
+	"vim.easymotion": true,
+	"vim.hlsearch": true,
+	"terminal.integrated.rightClickCopyPaste": true,
+	"terminal.external.linuxExec": "xfce4-terminal",
+}
