@@ -6,6 +6,7 @@ Here's the structure of dotfiles:
 - .gradle/init.gradle
 - .ideavimrc
 - .config
+    - Code(vscode)
     - fcitx
     - fish
 - .SpaceVim.d
