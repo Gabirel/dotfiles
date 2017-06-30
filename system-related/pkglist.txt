@@ -30,6 +30,9 @@ cryptsetup
 cups
 cups-pdf
 cups-pk-helper
+deepin-screen-recorder
+deepin-screenshot
+deepin-voice-recorder
 device-mapper
 dhclient
 dhcpcd
@@ -271,6 +274,7 @@ usbutils
 util-linux
 viewnior
 virtualbox
+visual-studio-code
 vlc-nightly
 wget
 whatweb
