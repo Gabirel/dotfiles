@@ -275,6 +275,7 @@ vlc-nightly
 wget
 whatweb
 which
+wireshark-gtk2
 wpa_supplicant
 wps-office
 wpscan
