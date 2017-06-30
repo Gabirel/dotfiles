@@ -75,6 +75,7 @@ garcon
 gawk
 gcc-libs-multilib
 gcc-multilib
+gcolor2
 gconf
 gettext
 ghostscript
@@ -88,6 +89,7 @@ gnome-keyring
 gnome-themes-standard
 google-chrome
 gparted
+gpick
 grep
 grub
 gsfonts
