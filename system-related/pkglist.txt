@@ -117,6 +117,7 @@ hplip
 htop
 i3lock
 inetutils
+inkscape
 intel-ucode
 inxi
 iproute2
