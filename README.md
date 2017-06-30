@@ -3,7 +3,10 @@
 Here's the structure of dotfiles:
 
 - .gitconfig
+- .gradle/init.gradle
+- .ideavimrc
 - .config
+    - Code(vscode)
     - fcitx
     - fish
 - .SpaceVim.d
