@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=WeChat
+Exec=wechat
+Icon=/usr/share/wechat/wechat.svg
+Type=Application
+Terminal=false
+StartupNotify=true
+Encoding=UTF-8
+Categories=Network;System;GTK;GNOME;
