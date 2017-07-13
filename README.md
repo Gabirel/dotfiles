@@ -13,6 +13,8 @@ Here's the structure of dotfiles:
     - init.vim
 - .wine
     - DosBox-0.74.conf
+- desktop-config-file
+        This is the desktop configuration file
 - doc
     - backup-restore-system.md
     - vim-plugin-usage

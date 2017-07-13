@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=AntSword
+Exec=AntSword
+Icon=0ad
+Type=Application
+Terminal=false
+StartupNotify=true
+Encoding=UTF-8
+Categories=Network;System;GTK;GNOME;
