@@ -13,6 +13,7 @@ Here's the structure of dotfiles:
     - init.vim
 - .wine
     - DosBox-0.74.conf
+- .xprofile
 - desktop-config-file
         This is the desktop configuration file
 - doc
