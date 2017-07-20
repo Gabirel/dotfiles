@@ -23,6 +23,7 @@ Here's the structure of dotfiles:
 - etc
     - gemrc
     - pacman.conf
+    - proxychains.conf
     - tmux.conf
     - vimrc
 - scripts
