@@ -14,6 +14,8 @@ Here's the structure of dotfiles:
 - .wine
     - DosBox-0.74.conf
 - .xprofile
+- _config.yml
+        This is for blog theme.
 - desktop-config-file
         This is the desktop configuration file
 - doc
