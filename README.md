@@ -10,6 +10,7 @@ Here's the structure of dotfiles:
     - fcitx
     - fish
 - .SpaceVim.d
+    - .ycm_extra_conf.py
     - init.vim
 - .wine
     - DosBox-0.74.conf
