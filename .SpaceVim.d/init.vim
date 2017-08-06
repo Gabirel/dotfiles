@@ -26,3 +26,4 @@ let g:python3_host_prog = '/usr/bin/python3'
 " If I enable this feature, it's gonna slow down my vim
 let g:spacevim_auto_disable_touchpad = 0
 let g:spacevim_lint_on_save = 0
+let g:spacevim_enable_ycm = 1
