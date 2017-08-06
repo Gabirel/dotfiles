@@ -3,6 +3,7 @@ let g:spacevim_max_column   =   80
 let g:spacevim_error_symbol =   '✗'
 let g:spacevim_buffer_index_type = 4
 let g:spacevim_lint_on_the_fly = 0
+set norelativenumber
 " call layers settings
 call SpaceVim#layers#load('lang#c')
 call SpaceVim#layers#load('lang#javascript')
