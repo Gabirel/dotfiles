@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ `id -u` -eq 0 ]; then
-    wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -O /tmp/hosts
+    wget https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts -O /tmp/hosts
     sleep 1
     
     echo "removing /etc/hosts"
