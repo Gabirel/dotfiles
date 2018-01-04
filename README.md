@@ -2,6 +2,7 @@
 
 Here's the structure of dotfiles:
 
+- .ghc/ghci.conf
 - .gitconfig
 - .gradle/init.gradle
 - .ideavimrc
