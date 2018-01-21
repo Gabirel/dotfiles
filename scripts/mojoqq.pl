@@ -12,7 +12,7 @@ my $client = Mojo::Webqq->new(
 $client->on(
 	input_qrcode=>sub{    
 		my($client,$qrcode_path) = @_;  
-		qx#/bin/viewqr $qrcode_path;#});
+		system("viewqr $qrcode_path")});
 
 
 $client->load("ShowMsg", data =>
