@@ -1,16 +1,21 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "editor.fontSize": 20,
+    "editor.fontSize": 18,
 	"editor.insertSpaces": false,
 	"editor.tabCompletion": true,
-	"workbench.colorTheme": "Monokai++",
-	"files.autoSave": "afterDelay",
-	"editor.fontFamily": "'Ubuntu Mono derivative Powerline', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
+	"files.autoSave": "onFocusChange",
+	"editor.fontFamily":"'Ubuntu Mono derivative Powerline', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
 	"editor.wordWrap": "on",
-	"workbench.iconTheme": "vs-seti",
+	"workbench.iconTheme": "Monokai Pro Icons",
 	"vim.useSystemClipboard": true,
 	"vim.easymotion": true,
 	"vim.hlsearch": true,
 	"terminal.integrated.rightClickCopyPaste": true,
 	"terminal.external.linuxExec": "xfce4-terminal",
+	"haskell.ghcMod.executablePath": "/Users/howie/.cabal/bin/ghc-mod",
+"haskell.hlint.executablePath": "/Users/howie/.cabal/bin/hlint",
+"workbench.colorTheme": "Monokai Pro",
+"markdown.preview.fontSize": 16,
+"markdown.preview.fontFamily": "'Microsoft YaHei','Source Code Pro for Powerline',-apple-system, 'Ubuntu Mono derivative Powerline',BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI','HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
+"editor.minimap.enabled": false
 }
