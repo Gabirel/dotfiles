@@ -43,6 +43,11 @@ Here's the structure of dotfiles:
     - ledcontrol.sh
 
         This is for controlling LED of keyboard by `Scroll Lock` 
+
+    - moveFiles
+
+        This is for moving files into the parent folder recursively
+
 - system-related
     - pkglist
         
