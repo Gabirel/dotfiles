@@ -31,6 +31,10 @@ Here's the structure of dotfiles:
     - proxychains.conf
     - tmux.conf
     - vimrc
+
+- some-data
+  something useful data(not private)
+
 - scripts
     - mojoqq.pl
 
