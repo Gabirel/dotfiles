@@ -1,0 +1,125 @@
+! 3/22/2018, 1:08:54 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###samesoft > .downnow[href="javascript:;"]
+
+! 3/22/2018, 1:09:12 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###necessary > h2
+
+! 3/22/2018, 1:09:18 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###hotsoft > dt
+
+! 3/22/2018, 1:09:31 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###necessary > .clearfix
+
+! 3/22/2018, 1:09:46 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###rank > .imgArea-side.tabTitle > .tab_2 > h3
+
+! 3/22/2018, 1:09:50 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###rank > .imgArea-side.tabTitle > .tab_1 > h3
+
+! 3/22/2018, 1:09:54 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###tabRank_0
+
+! 3/22/2018, 1:10:06 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###sidebar
+
+! 3/22/2018, 1:10:23 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###xgd
+
+! 3/22/2018, 1:10:27 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###hm_t_111996 > div > div
+
+! 3/22/2018, 1:10:33 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###hm_t_111996 > div
+
+! 3/22/2018, 1:10:43 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###xgw1
+
+! 3/22/2018, 1:10:51 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###content > .bdfx
+
+! 3/22/2018, 1:11:07 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###recomc > ul
+
+! 3/22/2018, 1:11:18 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###recomc > .title
+
+! 3/22/2018, 1:11:29 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###comment-wrap > .main-bd
+
+! 3/22/2018, 1:11:37 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###comment-wrap
+
+! 3/22/2018, 1:11:41 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###recomc
+
+! 3/22/2018, 1:12:01 PM http://www.itmop.com/downinfo/256394.html
+www.itmop.com###samesoft
+
+! 4/13/2018, 1:54:12 PM https://dict.hjenglish.com/jp/jc/%E6%97%A5%E6%9C%AC
+dict.hjenglish.com###_9x61cy1dzf > div
+
+! 4/13/2018, 1:54:19 PM https://dict.hjenglish.com/jp/jc/%E6%97%A5%E6%9C%AC
+dict.hjenglish.com###_9x61cy1dzf > a[href^="https://u8.hujiang.com/click"]
+
+! 4/13/2018, 1:55:19 PM https://dict.hjenglish.com/jp/jc/%E6%97%A5%E6%9C%AC
+about:blank$domain=dict.hjenglish.com
+
+! 4/13/2018, 1:55:31 PM https://dict.hjenglish.com/jp/jc/%E6%97%A5%E6%9C%AC
+dict.hjenglish.com##.wrapper > .container > .main > .clearfix.main-inner.inner > .content > .word-details-multi.word-details > .word-details-ads
+
+! 4/13/2018, 1:56:30 PM https://dict.hjenglish.com/jp/jc/%E6%97%A5%E6%9C%AC
+dict.hjenglish.com##.wrapper > .container > .main > .clearfix.main-inner.inner > .content > .word-details-multi.word-details > .word-details-content > .word-details-pane:nth-of-type(1) > .word-details-ads-placeholder
+
+! 4/13/2018, 1:56:44 PM https://dict.hjenglish.com/jp/jc/%E6%97%A5%E6%9C%AC
+about:blank$domain=dict.hjenglish.com
+
+! 4/13/2018, 1:56:52 PM https://dict.hjenglish.com/jp/jc/%E6%97%A5%E6%9C%AC
+dict.hjenglish.com###_x5o8ed5fjc9 > a[href^="https://u8.hujiang.com/click"]
+
+! 4/13/2018, 1:56:58 PM https://dict.hjenglish.com/jp/jc/%E6%97%A5%E6%9C%AC
+dict.hjenglish.com###_x5o8ed5fjc9 > div
+
+! 4/14/2018, 4:50:21 PM https://www.w3cschool.cn/junit/ari41hv9.html
+www.w3cschool.cn##.widget-body > .widget-main
+
+! 4/14/2018, 4:50:46 PM https://www.w3cschool.cn/junit/ari41hv9.html
+www.w3cschool.cn###feedback[href="javascript:;"]
+
+! 4/14/2018, 4:50:54 PM https://www.w3cschool.cn/junit/ari41hv9.html
+www.w3cschool.cn##.bottom-tools > .onlinenote[href="javascript:;"]
+
+! 4/14/2018, 4:51:03 PM https://www.w3cschool.cn/junit/ari41hv9.html
+www.w3cschool.cn##.bottom-tools > .qr-tool
+
+! 4/14/2018, 4:51:14 PM https://www.w3cschool.cn/junit/ari41hv9.html
+www.w3cschool.cn###header-r > .header-app[href="//www.w3cschool.cn/download"]
+
+! 4/14/2018, 7:22:41 PM http://wiki.jikexueyuan.com/project/junit/
+wiki.jikexueyuan.com##.clearfix.w-1200.detail-wrapper > .detail-main > .clearfix.detail-share > .bdshare-button-style0-16.share-item.bdsharebuttonbox
+
+! 4/14/2018, 7:33:48 PM https://blog.csdn.net/antony9118/article/details/51736135
+blog.csdn.net###nav_show_top_stop > .persion_article > .csdn-tracking-statistics.footer_box.right_box
+
+! 4/14/2018, 7:34:07 PM https://blog.csdn.net/antony9118/article/details/51736135
+blog.csdn.net###share_box > .bdshare-button-style0-16.tracking-click.csdn-tracking-statistics.bdsharebuttonbox:nth-of-type(6) > .left-fixed-btn.outside.bds_qzone
+
+! 4/14/2018, 7:34:15 PM https://blog.csdn.net/antony9118/article/details/51736135
+blog.csdn.net###share_box > .bdshare-button-style0-16.tracking-click.csdn-tracking-statistics.bdsharebuttonbox:nth-of-type(6)
+
+! 4/14/2018, 7:34:28 PM https://blog.csdn.net/antony9118/article/details/51736135
+blog.csdn.net###share_box > .bdshare-button-style0-16.tracking-click.csdn-tracking-statistics.bdsharebuttonbox:nth-of-type(4) > .left-fixed-btn.outside.bds_tsina
+
+! 4/14/2018, 7:34:34 PM https://blog.csdn.net/antony9118/article/details/51736135
+blog.csdn.net###share_box > .bdshare-button-style0-16.tracking-click.csdn-tracking-statistics.bdsharebuttonbox:nth-of-type(4)
+
+! 4/14/2018, 7:35:58 PM https://blog.csdn.net/u011138533/article/details/52165577
+blog.csdn.net###share_box > .bdshare-button-style0-16.tracking-click.csdn-tracking-statistics.bdsharebuttonbox:nth-of-type(8)
+
+! 4/14/2018, 7:37:24 PM https://blog.csdn.net/u011138533/article/details/52165577
+blog.csdn.net##.pulllog-box
+
+! 4/14/2018, 7:37:49 PM https://blog.csdn.net/u011138533/article/details/52165577
+blog.csdn.net##.clearfix.container > aside > .fixRight_box > .fixRight > .persion_article > .csdn-tracking-statistics.footer_box.right_box
+
+! 4/14/2018, 7:38:03 PM https://blog.csdn.net/u011138533/article/details/52165577
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAQCAYAAAABOs/SAAAABGdBTUEAALGPC/xhBQAAAhpJREFUOBHFVU2L2lAUHU0nExNHbRq1BkSrSFH8QBdu3QnuxYUr3bj2f/gHRPwrdmVdCLqxIK0KighqWz+mNVPaavtuhgtqnpnposyD5N53z7k57yX33RhKpdK7q2cYxmfQVCUfFU6n06/z+fwbvQWaTCYml8t5gBOJRKzZbFb19XJenIPhcNgaj8dfYZxlWSYWizkZhjFgDGyr1VqMRqMd+JlMRrbZbDd2u/3G4XBwTqeTBx8wGLvd7reiKPuH2cNdI+zz+W4FQbjudrtfkNjr9Vboo91sNr/A9/v9QjKZlFer1X2xWHxLclnIBx+5nU5n0Wg0FjgHqxGG4Hw+V9rt9lfw9YbRaDQUCoVgtVr9MB6P1d2TRYjRaFSq1+uf9HKpwnoJx5jL5eKazebM4/EIcAHmdrvNkiSZUqmU45g7HA6/zWaze4xphDmOY7bb7U8k6FmLxXItiiJ3zNnv938mk8mdLMvqQhBbLpc/dIXNZjM7nU6/Y4Ke7ff7d3AFAoFbUoQnxYd5h8PhCjg4R6vZMQiTQnnSjvEhpAmFB4OBpgABD4VCUrlcfo9ctBphcgx4eC1IeKqt1WofadxKpSLS4ifC5Ltw5Bsd1uu1elRoCZdiiUTiJQ2DyqfFT4SDwaCVnNnPNOJjMdKxqDs7bzz4HMP5T4Lneea8yyD5kvV6vTw5xwoNv4RpevW/ioLYJVE9TCNMW/X/iP0FJ9WyNfNE5tcAAAAASUVORK5CYII=$domain=blog.csdn.net
