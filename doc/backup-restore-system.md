@@ -9,3 +9,7 @@
 3. List all packages installed via AUR 
 
 > sudo pacman -Qqem
+
+4. use the following commands to update COLLATE
+
+> localectl set-locale LC_COLLATE=zh_CN.UTF-8
