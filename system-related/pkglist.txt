@@ -15,7 +15,6 @@ bash
 binutils
 binwalk
 bison
-blackarch-keyring
 blueman
 btrfs-progs
 bzip2
@@ -81,7 +80,6 @@ gettext
 ghostscript
 gimp
 git
-gksu
 glibc
 gnome-calculator
 gnome-icon-theme
@@ -202,8 +200,6 @@ openresolv
 openssh
 orage
 os-prober
-osx-arc-plus
-osx-arc-white
 p7zip
 pacman
 pamac
@@ -233,8 +229,6 @@ python-pip
 python-pyqt5
 python-reportlab
 qpdfview
-qpdfview-djvu-plugin
-qpdfview-ps-plugin
 reiserfsprogs
 remmina
 rsync
@@ -280,9 +274,7 @@ virtualbox
 visual-studio-code
 vlc-nightly
 wget
-whatweb
 which
-wireshark-gtk2
 wpa_supplicant
 wps-office
 wpscan
@@ -338,9 +330,7 @@ xfsprogs
 xfwm4
 xfwm4-themes
 xorg-server
-xorg-server-utils
 xorg-twm
-xorg-utils
 xorg-xinit
 xorg-xkill
 xscreensaver
