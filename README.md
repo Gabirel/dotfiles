@@ -2,6 +2,10 @@
 
 Here's the structure of dotfiles:
 
+- .astylec
+	
+	This is mainly for Qt creator
+	
 - .ghc/ghci.conf
 - .gitconfig
 - .gradle/init.gradle
