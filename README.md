@@ -35,6 +35,11 @@ Here's the structure of dotfiles:
     - proxychains.conf
     - tmux.conf
     - vimrc
+	
+- snippets
+	- qtcreator/snippets/
+	
+		This is for qtcreator's snippets
 
 - some-data
   something useful data(not private)

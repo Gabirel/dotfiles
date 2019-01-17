@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippets>
+    <snippet group="QML" trigger="PauseAnimation" id="qml_pauseanimation" complement="" removed="false" modified="true">
+PauseAnimation {
+    duration: $100$
+}</snippet>
+    <snippet group="QML" trigger="ter" id="" complement="with qsTr()" removed="false" modified="false">text: qsTr(&quot;$text$&quot;)</snippet>
+    <snippet group="QML" trigger="tir" id="" complement="with qsTr()" removed="false" modified="false">text: qsTr(&quot;$text$&quot;)</snippet>
+    <snippet group="Text" trigger="global" id="text_global" complement="example" removed="true" modified="false">// This is available in all editors.</snippet>
+</snippets>
