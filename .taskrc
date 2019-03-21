@@ -1,0 +1,59 @@
+# [Created by task 2.5.1 3/20/2019 14:21:13]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+editor=vim
+
+# Default value
+default.project=inbox
+color.project.inbox and tag.none=white
+
+# Files
+data.location=~/.task
+
+# Color theme (uncomment one to use)
+#include /usr/share/doc/task/rc/light-16.theme
+#include /usr/share/doc/task/rc/light-256.theme
+#include /usr/share/doc/task/rc/dark-16.theme
+#include /usr/share/doc/task/rc/dark-256.theme
+#include /usr/share/doc/task/rc/dark-red-256.theme
+#include /usr/share/doc/task/rc/dark-green-256.theme
+#include /usr/share/doc/task/rc/dark-blue-256.theme
+#include /usr/share/doc/task/rc/dark-violets-256.theme
+#include /usr/share/doc/task/rc/dark-yellow-green.theme
+#include /usr/share/doc/task/rc/dark-gray-256.theme
+#include /usr/share/doc/task/rc/dark-gray-blue-256.theme
+#include /usr/share/doc/task/rc/solarized-dark-256.theme
+#include /usr/share/doc/task/rc/solarized-light-256.theme
+#include /usr/share/doc/task/rc/no-color.theme
+
+# Inthe.am sync
+taskd.certificate=~/.config/taskwarrior/private.certificate.pem
+taskd.key=~/.config/taskwarrior/private.key.pem
+taskd.ca=~/.config/taskwarrior/ca.cert.pem
+taskd.server=taskwarrior.inthe.am:53589
+taskd.credentials=inthe_am/zl1370829148/d00a884d-1b43-4338-bae4-5550ab070bf8
+taskd.trust=ignore hostname
+
+# UDA - User Defined Attribute
+uda.reviewed.type=date
+uda.reviewed.label=Reviewed
+report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
+report._reviewed.columns=uuid
+report._reviewed.sort=reviewed+,modified+
+report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
+uda.priority.values=H,M,,L
+
+# Urgency coefficient
+# urgency.user.project.<project>.coefficient=5.0  # specific project
+# urgency.user.tag.<tag>.coefficient=5.0          # specific tag
+# urgency.uda.<name>.coefficient=5.0              # specific UDA
+urgency.user.project.inbox.coefficient=-1.0
+alias.rm=delete

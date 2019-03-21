@@ -10,6 +10,7 @@ Here's the structure of dotfiles:
     - Code(vscode)
     - fcitx
     - fish
+  .taskrc
 - .stack
 - .SpaceVim.d
     - .ycm_extra_conf.py
