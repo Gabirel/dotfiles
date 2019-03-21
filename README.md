@@ -2,6 +2,10 @@
 
 Here's the structure of dotfiles:
 
+- .astylec
+	
+	This is mainly for Qt creator
+	
 - .ghc/ghci.conf
 - .gitconfig
 - .gradle/init.gradle
@@ -32,6 +36,11 @@ Here's the structure of dotfiles:
     - proxychains.conf
     - tmux.conf
     - vimrc
+	
+- snippets
+	- qtcreator/snippets/
+	
+		This is for qtcreator's snippets
 
 - some-data
   something useful data(not private)
