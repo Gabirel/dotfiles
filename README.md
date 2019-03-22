@@ -15,6 +15,7 @@ Here's the structure of dotfiles:
     - fcitx
     - fish
   .taskrc
+  .taskopenrc
 - .stack
 - .SpaceVim.d
     - .ycm_extra_conf.py
