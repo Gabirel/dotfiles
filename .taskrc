@@ -14,6 +14,7 @@ editor=vim
 # Default value
 default.project=inbox
 color.project.inbox and tag.none=white
+search.case.sensitive=no
 
 # Files
 data.location=~/.task
@@ -56,4 +57,8 @@ uda.priority.values=H,M,,L
 # urgency.user.tag.<tag>.coefficient=5.0          # specific tag
 # urgency.uda.<name>.coefficient=5.0              # specific UDA
 urgency.user.project.inbox.coefficient=-1.0
+
+# Alias
 alias.rm=delete
+alias.bdd=burndown.daily
+alias.bdw=burndown.weekly
