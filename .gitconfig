@@ -3,6 +3,7 @@
 	name = Gabriel
 [core]
 	editor = vim
+	excludesfile = /Users/gabriel/.gitignore_global
 [alias]
     s = status
     c = commit
