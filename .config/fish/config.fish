@@ -8,5 +8,5 @@ alias t-="task delete"
 
 
 # On MacOS
-set HOMEBREW_BOTTLE_DOMAIN https://mirrors.aliyun.com/homebrew/homebrew-bottles
+set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
 alias git="env LANG=en_GB git"
