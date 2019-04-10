@@ -7,6 +7,9 @@ alias to="taskopen"
 alias t-="task delete"
 
 
-# On MacOS
+# MacOS Start
 set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
+source ~/.linuxify
+
 alias git="env LANG=en_GB git"
+alias ls="ls --color -h --group-directories-firs"
