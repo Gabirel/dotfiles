@@ -1,5 +1,5 @@
 {
-  "settingsVersion": "1.63.3",
+  "settingsVersion": "1.64.5",
   "exclusionRules": [
     {
       "pattern": "http://ssyar.com/green/*",
@@ -32,12 +32,28 @@
     {
       "pattern": "https://keep.google.com/",
       "passKeys": ""
+    },
+    {
+      "pattern": "https?://medium.com/*",
+      "passKeys": "q"
+    },
+    {
+      "pattern": "https?://calendar.google.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.evernote.com/*",
+      "passKeys": "*"
+    },
+    {
+      "pattern": "https?://coggle.it/*",
+      "passKeys": ""
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.",
+  "keyMappings": "# Insert your preferred key mappings here.\nmap [ closeOtherTabs\nmap ] closeTabsOnRight",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
