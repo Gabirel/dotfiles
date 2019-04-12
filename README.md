@@ -47,6 +47,9 @@ Here's the structure of dotfiles:
   something useful data(not private)
 
 - scripts
+-   - imgcat
+
+        This is for cat image in iterm2
     - mojoqq.pl
 
         This is the script for webqq
