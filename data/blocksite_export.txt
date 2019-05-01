@@ -18,6 +18,7 @@ bbs.pinggu.org
 bbs.rednet.cn
 blog.sina.com.cn
 bubuko.com
+c.biancheng.net
 ckbjlb.net
 cr173.com
 downcc.com
@@ -35,6 +36,7 @@ lbldy.com
 lulinux.com
 lvya.cc
 meikanguo.com
+mrcsb.com
 newasp.net
 orsoon.com
 pan66.com
