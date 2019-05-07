@@ -1,13 +1,20 @@
-set textwidth=80
+" Global setting for all filetypes
 set wrap
 
-let g:spacevim_colorscheme  =   'molokai'
-let g:spacevim_max_column   =   80
-let g:spacevim_error_symbol =   '✗'
+let g:spacevim_colorscheme  = 'molokai'
+let g:spacevim_max_column   = 80
+let g:spacevim_default_indent = 4
+let g:spacevim_error_symbol = '✗'
+let g:spacevim_warning_symbol =  '!'
+let g:spacevim_info_symbol =  'i'
 let g:spacevim_buffer_index_type = 4
+let g:spacevim_windows_index_type = 1
 let g:spacevim_lint_on_the_fly = 0
 let g:spacevim_relativenumber = 0
+let g:spacevim_filetree_direction = 'left'
+
 " call layers settings
+call SpaceVim#layers#load('colorscheme')
 call SpaceVim#layers#load('lang#c')
 call SpaceVim#layers#load('lang#javascript')
 "call SpaceVim#layers#load('lang#haskell')
@@ -25,22 +32,14 @@ let vim_markdown_preview_github=1
 let vim_markdown_preview_use_xdg_open=1
 let g:spacevim_lint_on_save = 0
 "let g:python3_host_prog = '/usr/bin/python3'
-" If I enable this feature, it's gonna slow down my vim
-let g:spacevim_auto_disable_touchpad = 0
-let g:spacevim_lint_on_save = 0
-
-" ############## YCM Start#######################
+" If I enable this feature, it's gonna  = 0
 let g:spacevim_enable_ycm = 1
-let g:spacevim_custom_plugins = [
-    \ ['rdnetto/YCM-Generator'],
-    \ ]
-"let g:ycm_python_binary_path = 'python'
-let g:ycm_error_symbol = '✗'
 let g:ycm_complete_in_comments = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_seed_identifiers_with_syntax = 0
-"let g:ycm_global_ycm_extra_conf = '~/.SpaceVim.d/.ycm_extra_conf.py'
+let g:ycm_error_symbol = '✗'
+let g:ycm_warning_symbol = '!'
+let g:ycm_global_ycm_extra_conf = '~/.SpaceVim.d/.ycm_extra_conf.py'
 let g:ycm_semantic_triggers =  {
   \   'c' : ['->', '.'],
   \   'cpp,objcpp' : ['->', '.', '::'],
@@ -49,4 +48,10 @@ let g:ycm_semantic_triggers =  {
   \   'ruby' : ['.', '::'],
   \   'lua' : ['.', ':'],
   \ }
+let g:ycm_filetype_blacklist = { }
 " ############## YCM End ########################
+
+" Custom Plugins
+let g:spacevim_custom_plugins = [
+    \ ['rdnetto/YCM-Generator'],
+    \ ]
