@@ -58,6 +58,12 @@ let g:spacevim_custom_plugins = [
     \ ]
 
 " Language Specific Settings
+" Auto format on save
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
 let g:neoformat_cpp_clangformat = {
             \ 'exe': 'clang-format',
             \ 'args': ['-style=file'],
