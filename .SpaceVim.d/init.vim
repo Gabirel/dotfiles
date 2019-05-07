@@ -1,6 +1,10 @@
-" Global setting for all filetypes
+" ############## Default Setting Start ########################
 set wrap
+" ############## Default Setting End   ########################
 
+
+" ############## SpaceVim Setting Start ########################
+" basic defualt SpaceVim settings
 let g:spacevim_colorscheme  = 'molokai'
 let g:spacevim_max_column   = 80
 let g:spacevim_default_indent = 4
@@ -12,8 +16,9 @@ let g:spacevim_windows_index_type = 1
 let g:spacevim_lint_on_the_fly = 0
 let g:spacevim_relativenumber = 0
 let g:spacevim_filetree_direction = 'left'
+let g:spacevim_lint_on_save = 0
 
-" call layers settings
+" layers settings
 call SpaceVim#layers#load('colorscheme')
 call SpaceVim#layers#load('lang#c')
 call SpaceVim#layers#load('lang#javascript')
@@ -23,16 +28,36 @@ call SpaceVim#layers#load('lang#markdown')
 call SpaceVim#layers#load('lang#python')
 call SpaceVim#layers#load('lang#swig')
 call SpaceVim#layers#load('lang#xml')
-"call SpaceVim#layers#load('tmux')
+" ############## SpaceVim Setting End  ########################
 
+
+" ############## Embedded Plugins Setting Start ########################
+" {{ vim_markdown {{
 let g:neomake_open_list = 0
 let g:mkdp_path_to_chrome = 'google-chrome-stable'
 let g:mkdp_auto_start = 0
 let vim_markdown_preview_github=1
 let vim_markdown_preview_use_xdg_open=1
-let g:spacevim_lint_on_save = 0
-"let g:python3_host_prog = '/usr/bin/python3'
-" If I enable this feature, it's gonna  = 0
+" }} vim_markdown }}
+
+" {{ Neoformat {{
+" Auto format on save
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
+let g:neoformat_cpp_clangformat = {
+            \ 'exe': 'clang-format',
+            \ 'args': ['-style=file'],
+            \ 'stdin': 1,
+            \ }
+" }} Neoformat }}
+" ############## Embedded Plugins Setting End   ########################
+
+
+" ############## Extra Plugins Setting Start ########################
+" {{ YouCompleteMe {{
 let g:spacevim_enable_ycm = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_confirm_extra_conf = 0
@@ -50,22 +75,17 @@ let g:ycm_semantic_triggers =  {
   \   'lua' : ['.', ':'],
   \ }
 let g:ycm_filetype_blacklist = { }
-" ############## YCM End ########################
+" }} YouCompleteMe }}
+" ############## Extra Plugins Setting End   ########################
 
-" Custom Plugins
+
+" ############## Custom Plugins in SpaceVim Start ########################
 let g:spacevim_custom_plugins = [
     \ ['rdnetto/YCM-Generator'],
     \ ]
+" ############## Custom Plugins in SpaceVim End   ########################
 
-" Language Specific Settings
-" Auto format on save
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
 
-let g:neoformat_cpp_clangformat = {
-            \ 'exe': 'clang-format',
-            \ 'args': ['-style=file'],
-            \ 'stdin': 1,
-            \ }
+" ############## Custom Plugins Setting in SpaceVim Start ########################
+
+" ############## Custom Plugins Setting in SpaceVim End  ########################
