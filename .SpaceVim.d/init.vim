@@ -1,5 +1,6 @@
 " ############## Default Setting Start ########################
 set wrap
+au BufRead,BufNewFile *.fish setfiletype sh
 " ############## Default Setting End   ########################
 
 
