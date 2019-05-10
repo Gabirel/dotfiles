@@ -16,6 +16,7 @@ Here's the structure of dotfiles:
     - fish
   .taskrc
   .taskopenrc
+  .tmux.conf
 - .stack
 - .SpaceVim.d
     - .ycm_extra_conf.py
@@ -35,7 +36,6 @@ Here's the structure of dotfiles:
     - gemrc
     - pacman.conf
     - proxychains.conf
-    - tmux.conf
     - vimrc
 	
 - snippets
