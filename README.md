@@ -6,6 +6,7 @@ Here's the structure of dotfiles:
 	
 	This is mainly for Qt creator
 	
+- .gdbinit
 - .ghc/ghci.conf
 - .gitconfig
 - .gradle/init.gradle
