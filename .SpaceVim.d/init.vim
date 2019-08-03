@@ -43,10 +43,10 @@ let vim_markdown_preview_use_xdg_open=1
 
 " {{ Neoformat {{
 " Auto format on save
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+"augroup fmt
+"  autocmd!
+"  autocmd BufWritePre * undojoin | Neoformat
+"augroup END
 
 let g:neoformat_cpp_clangformat = {
             \ 'exe': 'clang-format',
