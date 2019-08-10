@@ -10,6 +10,8 @@ alias t-="task delete"
 # MacOS Start
 set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
 source ~/.linuxify
+# For Rust
+source $HOME/.cargo/env
 
 alias git="env LANG=en_GB git"
 alias ls="ls --color -h --group-directories-first"
