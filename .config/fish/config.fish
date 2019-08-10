@@ -13,5 +13,6 @@ source ~/.linuxify
 
 alias git="env LANG=en_GB git"
 alias ls="ls --color -h --group-directories-first"
+alias lt="ls --human-readable --size -1 -S --classify"
 alias pcs="proxychains4"
 alias cpv='rsync -ah --info=progress2'
