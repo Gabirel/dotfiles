@@ -1,6 +1,7 @@
 " ############## Default Setting Start ########################
 set wrap
 au BufRead,BufNewFile *.fish setfiletype sh
+set guifont=Menlo-Regular:h20
 " ############## Default Setting End   ########################
 
 
