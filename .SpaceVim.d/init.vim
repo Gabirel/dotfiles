@@ -2,6 +2,8 @@
 set wrap
 au BufRead,BufNewFile *.fish setfiletype sh
 set guifont=Menlo-Regular:h20
+" Special setting for latex files
+autocmd FileType tex setlocal colorcolumn=80 textwidth=80 wrapmargin=2
 " ############## Default Setting End   ########################
 
 
