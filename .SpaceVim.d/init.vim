@@ -21,6 +21,8 @@ let g:spacevim_lint_on_the_fly = 0
 let g:spacevim_relativenumber = 0
 let g:spacevim_filetree_direction = 'left'
 let g:spacevim_lint_on_save = 0
+let g:neomake_open_list = 0
+let g:vimtex_quickfix_enabled = 0
 
 " layers settings
 call SpaceVim#layers#load('colorscheme')
@@ -38,7 +40,6 @@ call SpaceVim#layers#load('lang#xml')
 
 " ############## Embedded Plugins Setting Start ########################
 " {{ vim_markdown {{
-let g:neomake_open_list = 0
 let g:mkdp_path_to_chrome = 'google-chrome-stable'
 let g:mkdp_auto_start = 0
 let vim_markdown_preview_github=1
