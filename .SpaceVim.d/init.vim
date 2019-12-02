@@ -5,6 +5,7 @@ set guifont=Menlo-Regular:h20
 " Special setting for latex files
 " Use `gggqG` to format long lines in Latex
 " Use `gq11j` to wrap the line you're on with the 11 below it
+" Use `gqip` or `gqap` to wrap the paragraph
 " gg(go to first line), gq(format) to G(the last line)
 autocmd FileType tex setlocal colorcolumn=80 textwidth=79 tabstop=2 shiftwidth=2 expandtab
 " ############## Default Setting End   ########################
