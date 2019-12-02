@@ -3,7 +3,9 @@ set wrap
 au BufRead,BufNewFile *.fish setfiletype sh
 set guifont=Menlo-Regular:h20
 " Special setting for latex files
-autocmd FileType tex setlocal colorcolumn=80 textwidth=80 wrapmargin=2
+" Use `gggqG` to format long lines in Latex
+" gg(go to first line), gq(format) to G(the last line)
+autocmd FileType tex setlocal colorcolumn=80 textwidth=79 tabstop=2 shiftwidth=2 expandtab
 " ############## Default Setting End   ########################
 
 
