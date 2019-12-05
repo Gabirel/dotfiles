@@ -33,6 +33,7 @@ let g:vimtex_quickfix_enabled = 0
 
 " layers settings
 call SpaceVim#layers#load('colorscheme')
+"call SpaceVim#layers#load('git')
 call SpaceVim#layers#load('VersionControl')
 call SpaceVim#layers#load('lang#c')
 call SpaceVim#layers#load('lang#javascript')
