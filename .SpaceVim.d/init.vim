@@ -8,6 +8,7 @@ set guifont=Menlo-Regular:h20
 " Use `gqip` or `gqap` to wrap the paragraph
 " gg(go to first line), gq(format) to G(the last line)
 autocmd FileType tex setlocal colorcolumn=80 textwidth=79 tabstop=2 shiftwidth=2 expandtab
+nnoremap <leader>v gqip
 " ############## Default Setting End   ########################
 
 
