@@ -9,6 +9,8 @@ set guifont=Menlo-Regular:h20
 " gg(go to first line), gq(format) to G(the last line)
 autocmd FileType tex setlocal colorcolumn=80 textwidth=79 tabstop=2 shiftwidth=2 expandtab
 nnoremap <leader>v gqip
+" See: http://vimdoc.sourceforge.net/htmldoc/syntax.html#g:tex_conceal
+let g:tex_conceal = "adg"
 " ############## Default Setting End   ########################
 
 
