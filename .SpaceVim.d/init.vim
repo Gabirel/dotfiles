@@ -69,7 +69,7 @@ let g:neoformat_cpp_clangformat = {
 autocmd FileType tex setlocal colorcolumn=80 textwidth=79 tabstop=2 shiftwidth=2 expandtab
 nnoremap <leader>v gqip
 " See: http://vimdoc.sourceforge.net/htmldoc/syntax.html#g:tex_conceal
-let g:tex_conceal = "adg"
+let g:tex_conceal = "abdg"
 " Disable automatic view since I do not use `previewer` for viewing anymore
 let g:vimtex_view_automatic = 0
 " }} vimtex }}
