@@ -2,15 +2,6 @@
 set wrap
 au BufRead,BufNewFile *.fish setfiletype sh
 set guifont=Menlo-Regular:h20
-" Special setting for latex files
-" Use `gggqG` to format long lines in Latex
-" Use `gq11j` to wrap the line you're on with the 11 below it
-" Use `gqip` or `gqap` to wrap the paragraph
-" gg(go to first line), gq(format) to G(the last line)
-autocmd FileType tex setlocal colorcolumn=80 textwidth=79 tabstop=2 shiftwidth=2 expandtab
-nnoremap <leader>v gqip
-" See: http://vimdoc.sourceforge.net/htmldoc/syntax.html#g:tex_conceal
-let g:tex_conceal = "adg"
 " ############## Default Setting End   ########################
 
 
@@ -68,6 +59,20 @@ let g:neoformat_cpp_clangformat = {
             \ 'stdin': 1,
             \ }
 " }} Neoformat }}
+"
+" {{ vimtex {{
+" Special setting for latex files
+" Use `gggqG` to format long lines in Latex
+" Use `gq11j` to wrap the line you're on with the 11 below it
+" Use `gqip` or `gqap` to wrap the paragraph
+" gg(go to first line), gq(format) to G(the last line)
+autocmd FileType tex setlocal colorcolumn=80 textwidth=79 tabstop=2 shiftwidth=2 expandtab
+nnoremap <leader>v gqip
+" See: http://vimdoc.sourceforge.net/htmldoc/syntax.html#g:tex_conceal
+let g:tex_conceal = "adg"
+" Disable automatic view since I do not use `previewer` for viewing anymore
+let g:vimtex_view_automatic = 0
+" }} vimtex }}
 " ############## Embedded Plugins Setting End   ########################
 
 
@@ -89,6 +94,8 @@ let g:ycm_semantic_triggers =  {
   \   'lua' : ['.', ':'],
   \ }
 let g:ycm_filetype_blacklist = { }
+" YCM for vimtex
+au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 " }} YouCompleteMe }}
 " ############## Extra Plugins Setting End   ########################
 
