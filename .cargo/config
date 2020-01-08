@@ -1,3 +1,6 @@
+[cargo-new]
+vcs = "none"
+
 [source.crates-io]
 replace-with = 'ustc'
 
