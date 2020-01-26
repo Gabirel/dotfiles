@@ -19,10 +19,12 @@ let g:spacevim_lint_on_the_fly = 0
 let g:spacevim_relativenumber = 0
 let g:spacevim_filetree_direction = 'left'
 let g:spacevim_lint_on_save = 0
-let g:neomake_open_list = 0
+let g:spacevim_enable_neomake = 0
+let g:spacevim_enable_ale = 0
 let g:vimtex_quickfix_enabled = 0
 
 " layers settings
+call SpaceVim#layers#load('checkers')
 call SpaceVim#layers#load('colorscheme')
 "call SpaceVim#layers#load('git')
 call SpaceVim#layers#load('VersionControl')
