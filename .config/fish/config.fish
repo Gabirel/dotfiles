@@ -59,6 +59,9 @@ end
 alias cmakedebug='cmake $1 -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake $1 -DCMAKE_BUILD_TYPE=Release'
 
+# https://superuser.com/questions/802698/disable-mouse-reporting-in-a-terminal-session-after-tmux-exits-unexpectedly
+alias resetmouse='printf '"'"'\e[?1000l'"'"
+
 alias git="env LANG=en_GB git"
 alias pcs="proxychains4"
 alias cpv='rsync -ah --info=progress2'
