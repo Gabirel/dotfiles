@@ -1,6 +1,5 @@
 " ############## Default Setting Start ########################
 set wrap
-au BufRead,BufNewFile *.fish setfiletype sh
 set guifont=Menlo-Regular:h20
 " ############## Default Setting End   ########################
 
@@ -66,7 +65,15 @@ let g:neoformat_cpp_clangformat = {
             \ 'stdin': 1,
             \ }
 " }} Neoformat }}
-"
+
+" {{ ale {{
+" setting below is not necessary when dag/vim-fish is enabled
+au BufRead,BufNewFile *.fish setfiletype sh
+" Disable linting for all fish files.
+let g:ale_pattern_options = {'\.fish$': {'ale_enabled': 0}}
+"autocmd FileType fish let g:ale_sh_shell_default_shell='fish'
+" }} ale }}
+
 " {{ vimtex {{
 " Special setting for latex files
 " Use `gggqG` to format long lines in Latex
