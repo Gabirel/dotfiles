@@ -20,7 +20,7 @@ let g:spacevim_relativenumber = 0
 let g:spacevim_filetree_direction = 'left'
 let g:spacevim_lint_on_save = 0
 let g:spacevim_enable_neomake = 0
-let g:spacevim_enable_ale = 0
+let g:spacevim_enable_ale = 1
 let g:vimtex_quickfix_enabled = 0
 
 " layers settings
