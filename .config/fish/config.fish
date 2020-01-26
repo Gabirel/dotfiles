@@ -1,3 +1,20 @@
+# for macOS
+if test (uname)="Darwin"
+    set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
+
+    # read .linuxify
+    if test -f $HOME/.linuxify
+        source $HOME/.linuxify
+    end
+end
+
+if test -f $HOME/.cargo/env
+    # for rust
+    source $HOME/.cargo/env
+    set -x RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
+    set -x RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
+end
+
 # use exa for the good
 if command -s exa > /dev/null
     alias exa="exa --group-directories-first"
@@ -30,14 +47,6 @@ if command -s task > /dev/null
     alias to="taskopen"
     alias t-="task delete"
 end
-
-# MacOS Start
-set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
-source ~/.linuxify
-# For Rust
-source $HOME/.cargo/env
-export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
-export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 
 # For CMake
 alias cmakedebug='cmake $1 -DCMAKE_BUILD_TYPE=Debug'
