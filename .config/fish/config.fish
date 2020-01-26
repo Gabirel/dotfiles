@@ -15,6 +15,13 @@ if test -f $HOME/.cargo/env
     set -x RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
 end
 
+# use autojump if it exist
+if test (uname)="Darwin"
+    [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+else if test (uname)="Linux"
+    [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
+end
+
 # use exa for the good
 if command -s exa > /dev/null
     alias exa="exa --group-directories-first"
