@@ -103,6 +103,7 @@ au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 " ############## Custom Plugins in SpaceVim Start ########################
 let g:spacevim_custom_plugins = [
     \ ['rdnetto/YCM-Generator'],
+    \ ['machakann/vim-highlightedyank'],
     \ ]
 " ############## Custom Plugins in SpaceVim End   ########################
 
