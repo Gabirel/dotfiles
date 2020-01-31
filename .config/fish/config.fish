@@ -1,5 +1,5 @@
 # for macOS
-if test (uname)="Darwin"
+if test (uname) = "Darwin"
     set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
 
     # read .linuxify
@@ -16,9 +16,9 @@ if test -f $HOME/.cargo/env
 end
 
 # use autojump if it exist
-if test (uname)="Darwin"
+if test (uname) = "Darwin"
     [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
-else if test (uname)="Linux"
+else if test (uname) = "Linux"
     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 end
 
