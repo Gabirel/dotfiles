@@ -8,6 +8,12 @@ if test (uname)="Darwin"
     end
 end
 
+# use nvim
+if command -s nvim > /dev/null
+    alias vvim="vim"
+    alias vim="nvim"
+end
+
 if test -f $HOME/.cargo/env
     # for rust
     source $HOME/.cargo/env

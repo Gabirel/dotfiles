@@ -25,6 +25,7 @@ let g:spacevim_windows_index_type = 3
 let g:spacevim_buffer_index_type = 4
 let g:spacevim_statusline_separator = 'arrow'
 let g:vimtex_quickfix_enabled = 0
+let g:spacevim_autocomplete_method = 'deoplete'
 
 " layers settings
 call SpaceVim#layers#load('checkers')
@@ -92,7 +93,7 @@ let g:vimtex_view_automatic = 0
 
 " ############## Extra Plugins Setting Start ########################
 " {{ YouCompleteMe {{
-let g:spacevim_enable_ycm = 1
+let g:spacevim_enable_ycm = 0
 let g:ycm_complete_in_comments = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_seed_identifiers_with_syntax = 0
