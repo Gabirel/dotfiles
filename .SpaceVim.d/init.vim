@@ -72,6 +72,8 @@ let g:neoformat_cpp_clangformat = {
 au BufRead,BufNewFile *.fish setfiletype sh
 " Disable linting for all fish files.
 let g:ale_pattern_options = {'\.fish$': {'ale_enabled': 0}}
+" Disable not-so-smart chktex
+let g:ale_tex_chktex_executable = ''
 "autocmd FileType fish let g:ale_sh_shell_default_shell='fish'
 " }} ale }}
 
