@@ -1,6 +1,6 @@
 " ############## Default Setting Start ########################
 set wrap
-set guifont=Menlo-Regular:h20
+set guifont=JetBrainsMonoForPowerline-Regular:h20
 " ############## Default Setting End   ########################
 
 
