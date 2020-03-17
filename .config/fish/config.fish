@@ -61,6 +61,12 @@ if command -s task > /dev/null
     alias t-="task delete"
 end
 
+# use jenv
+if test -d $HOME/.jenv
+    set PATH $HOME/.jenv/bin $PATH
+    status --is-interactive; and source (jenv init -|psub)
+end
+
 # For CMake
 alias cmakedebug='cmake $1 -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake $1 -DCMAKE_BUILD_TYPE=Release'
