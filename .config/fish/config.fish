@@ -6,6 +6,13 @@ if test (uname) = "Darwin"
     if test -f $HOME/.linuxify
         source $HOME/.linuxify
     end
+
+    if command -s go > /dev/null
+        set -x GOPATH /usr/local/opt/go-package
+    end
+    
+    # reset activity monitor to bring column back
+    alias monitor_reset="rm ~/Library/Preferences/com.apple.ActivityMonitor.plist"
 end
 
 # use nvim
