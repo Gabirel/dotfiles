@@ -55,6 +55,10 @@ Here's the structure of dotfiles:
 
         This is the script for webqq
 
+    - update-gfwprivoxy.sh
+
+        This is for updating privoxy/gfwlist.action content and use `user-rule`
+
     - updatehosts.sh
 
         This is for updating /etc/hosts
