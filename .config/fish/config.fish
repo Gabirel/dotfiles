@@ -13,6 +13,12 @@ if test (uname) = "Darwin"
     
     # reset activity monitor to bring column back
     alias monitor_reset="rm ~/Library/Preferences/com.apple.ActivityMonitor.plist"
+
+    # proxy related with privoxy
+    set -x http_proxy http://127.0.0.1:8118
+    set -x https_proxy http://127.0.0.1:8118
+    alias pprivoxy='export http_proxy=http://127.0.0.1:8118;export https_proxy=http://127.0.0.1:8118;'
+    alias unprivoxy='unset http_proxy https_proxy'
 end
 
 # use nvim
