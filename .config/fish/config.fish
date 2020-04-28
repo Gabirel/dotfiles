@@ -9,6 +9,8 @@ if test (uname) = "Darwin"
 
     if command -s go > /dev/null
         set -x GOPATH /usr/local/opt/go-package
+        # add the go bin path 
+        set -x PATH $PATH $GOPATH/bin
     end
     
     # reset activity monitor to bring column back
