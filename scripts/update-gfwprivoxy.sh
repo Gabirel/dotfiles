@@ -11,6 +11,7 @@ cat > /tmp/user.rule <<EOF
 ip.gs
 .github.com
 .gitlab.com
+download.mono-project.com
 EOF
 
 ## 生成 gfwlist.action 后刷新 privoxy
