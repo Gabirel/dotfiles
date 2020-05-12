@@ -19,7 +19,7 @@ if test (uname) = "Darwin"
     # proxy related with privoxy
     set -x http_proxy http://127.0.0.1:8118
     set -x https_proxy http://127.0.0.1:8118
-    alias pprivoxy='export http_proxy=http://127.0.0.1:8118;export https_proxy=http://127.0.0.1:8118;'
+    alias pprivoxy='set -x http_proxy http://127.0.0.1:8118; and set -x https_proxy http://127.0.0.1:8118;'
     alias unprivoxy='set -e http_proxy; and set -e https_proxy'
 end
 
