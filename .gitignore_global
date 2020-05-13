@@ -11,3 +11,6 @@ Icon?
 ehthumbs.db
 Thumbs.db
 tags
+
+# Jetbrains product
+.idea
