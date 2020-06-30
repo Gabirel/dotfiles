@@ -25,7 +25,7 @@ let g:spacevim_windows_index_type = 3
 let g:spacevim_buffer_index_type = 4
 let g:spacevim_statusline_separator = 'arrow'
 let g:vimtex_quickfix_enabled = 0
-let g:spacevim_autocomplete_method = 'deoplete'
+let g:spacevim_autocomplete_method = 'coc'
 
 " layers settings
 call SpaceVim#layers#load('checkers')
@@ -46,6 +46,10 @@ call SpaceVim#layers#load('lang#xml')
 
 
 " ############## Embedded Plugins Setting Start ########################
+" {{ coc {{
+let g:coc_config_home = '~/.SpaceVim.d/'
+" }} coc }}
+"
 " {{ vim_markdown {{
 let g:mkdp_path_to_chrome = 'google-chrome-stable'
 let g:mkdp_auto_start = 0
