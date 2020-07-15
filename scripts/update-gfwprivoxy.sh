@@ -12,6 +12,7 @@ ip.gs
 .github.com
 .gitlab.com
 download.mono-project.com
+.cloudfront.net
 EOF
 
 ## 生成 gfwlist.action 后刷新 privoxy
