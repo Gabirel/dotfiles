@@ -12,6 +12,11 @@ if test (uname) = "Darwin"
         # add the go bin path 
         set -x PATH $PATH $GOPATH/bin
     end
+
+    # add the npm bin path 
+    if command -s npm > /dev/null
+        set -x PATH $PATH /usr/local/Cellar/node/14.5.0/bin
+    end
     
     # reset activity monitor to bring column back
     alias monitor_reset="rm ~/Library/Preferences/com.apple.ActivityMonitor.plist"
