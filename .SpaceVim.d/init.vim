@@ -158,6 +158,7 @@ au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 let g:spacevim_custom_plugins = [
     \ ['rdnetto/YCM-Generator'],
     \ ['machakann/vim-highlightedyank'],
+    \ ['iloginow/vim-stylus'],
     \ ]
 " ############## Custom Plugins in SpaceVim End   ########################
 
