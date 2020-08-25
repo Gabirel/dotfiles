@@ -4,7 +4,7 @@
 set -e
 
 # only works for v2rayU
-v2ray_folder="/Users/gabriel/Library/Preferences/qv2ray/vcore/"
+v2ray_folder="~/Library/Preferences/qv2ray/vcore/"
 
 GREEN='\033[0;32m'
 NC='\033[0m'
