@@ -77,6 +77,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
+nmap <leader>y "+y
+
 " Formatting selected code.
 " `<leader>f` already taken by SpaceVim 
 " xmap <leader>f  <Plug>(coc-format-selected)
