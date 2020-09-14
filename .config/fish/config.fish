@@ -24,8 +24,14 @@ if test (uname) = "Darwin"
     # proxy related with privoxy
     set -x http_proxy http://127.0.0.1:8118
     set -x https_proxy http://127.0.0.1:8118
-    alias pprivoxy='set -x http_proxy http://127.0.0.1:8118; and set -x https_proxy http://127.0.0.1:8118;'
-    alias unprivoxy='set -e http_proxy; and set -e https_proxy'
+    function pprivoxy -d "set proxy forwarding to privoxy, then to the proxy server"
+        set -x http_proxy http://127.0.0.1:8118
+        and set -x https_proxy http://127.0.0.1:8118
+    end
+    function unprivoxy -d "unset proxy forwarding to privoxy"
+        set -e http_proxy
+        and set -e https_proxy
+    end
 end
 
 # use nvim
@@ -92,7 +98,9 @@ alias cmakedebug='cmake $1 -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerelease='cmake $1 -DCMAKE_BUILD_TYPE=Release'
 
 # https://superuser.com/questions/802698/disable-mouse-reporting-in-a-terminal-session-after-tmux-exits-unexpectedly
-alias resetmouse='printf '"'"'\e[?1000l'"'"
+function resetmouse -d "reset mouse for escaping"
+    printf '\e[?1000l'
+end
 
 alias git="env LANG=en_GB git"
 alias pcs="proxychains4"
