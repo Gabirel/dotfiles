@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
+# Deprecated since proxy router has much better management compared to gfwlist
+
+
 # Modified from: https://gist.github.com/shellexy/518189b2dee475215e0c56f7ef3c9196
-# Works for macOS only
+# Path only works for macOS only. If you need this, change path by yourself
 
 ## 让 privoxy 代理服务器使用 gfwlist 自动分流
 ## 安装需要的包，gfwlist2privoxy 暂时只支持 py2.7 所以需要修改下::
