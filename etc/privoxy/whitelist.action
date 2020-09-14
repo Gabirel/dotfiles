@@ -1,0 +1,7 @@
+# Modified from: https://www.cnblogs.com/hongdada/p/10787924.html
+{{alias}}
+direct      = +forward-override{forward .}
+
+#========== Direct link without forwarding to proxy server ==========
+{direct} 
+ip.gs
