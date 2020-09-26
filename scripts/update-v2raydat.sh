@@ -4,7 +4,9 @@
 set -e
 
 # only works for macOS
-v2ray_folder="/Users/gabriel/Library/Preferences/qv2ray/vcore/"
+v2ray_version_description=`v2ray --version`
+v2ray_version=`echo $v2ray_version_description | cut -d" " -f2`
+v2ray_folder="/usr/local/Cellar/v2ray-core/$v2ray_version/bin/"
 
 GREEN='\033[0;32m'
 NC='\033[0m'
