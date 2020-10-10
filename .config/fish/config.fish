@@ -25,8 +25,8 @@ if test (uname) = "Darwin"
     set -x http_proxy http://127.0.0.1:8118
     set -x https_proxy http://127.0.0.1:8118
     function pprivoxy -d "set proxy forwarding to privoxy, then to the proxy server"
-        set -x http_proxy http://127.0.0.1:8118
-        and set -x https_proxy http://127.0.0.1:8118
+        set -g -x http_proxy http://127.0.0.1:8118
+        and set -g -x https_proxy http://127.0.0.1:8118
     end
     function unprivoxy -d "unset proxy forwarding to privoxy"
         set -e http_proxy
