@@ -125,7 +125,10 @@ let g:ale_tex_chktex_executable = ''
 autocmd FileType tex setlocal colorcolumn=80 textwidth=79 tabstop=2 shiftwidth=2 expandtab
 nnoremap <leader>v gqip
 " See: http://vimdoc.sourceforge.net/htmldoc/syntax.html#g:tex_conceal
-let g:tex_conceal = "abdg"
+" let g:tex_conceal = "abdg"
+
+" Disable all syntax conceal
+let g:vimtex_syntax_conceal_default = 0
 " Disable automatic view since I do not use `previewer` for viewing anymore
 let g:vimtex_view_automatic = 0
 " }} vimtex }}
