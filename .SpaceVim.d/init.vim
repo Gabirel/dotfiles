@@ -6,7 +6,8 @@ set guifont=JetBrainsMonoForPowerline-Regular:h20
 
 " ############## SpaceVim Setting Start ########################
 " basic defualt SpaceVim settings
-let g:spacevim_colorscheme  = 'molokai'
+let g:spacevim_colorscheme  = 'sonokai'
+" let g:spacevim_colorscheme  = 'molokai'
 let g:spacevim_max_column   = 80
 let g:spacevim_default_indent = 4
 let g:spacevim_error_symbol = '✗'
@@ -136,6 +137,7 @@ let g:vimtex_view_automatic = 0
 
 
 " ############## Extra Plugins Setting Start ########################
+" No longer use YouCompleteMe anymore
 " {{ YouCompleteMe {{
 let g:spacevim_enable_ycm = 0
 let g:ycm_complete_in_comments = 1
@@ -160,14 +162,17 @@ au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
 
 " ############## Custom Plugins in SpaceVim Start ########################
+" No longer use rdnetto/YCM-Generator
 let g:spacevim_custom_plugins = [
-    \ ['rdnetto/YCM-Generator'],
     \ ['machakann/vim-highlightedyank'],
     \ ['iloginow/vim-stylus'],
+    \ ['sainnhe/sonokai'],
+    \ ['sheerun/vim-polyglot'], 
     \ ]
 " ############## Custom Plugins in SpaceVim End   ########################
 
 
 " ############## Custom Plugins Setting in SpaceVim Start ########################
-
+let g:sonokai_style = 'default'
+let g:sonokai_better_performance = 1
 " ############## Custom Plugins Setting in SpaceVim End  ########################
