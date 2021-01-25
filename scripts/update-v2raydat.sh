@@ -4,9 +4,9 @@
 set -e
 
 # only works for macOS
-v2ray_version_description=`v2ray --version`
+v2ray_version_description=`/usr/local/Cellar/v2ray-core/4.30.0/bin/xray --version`
 v2ray_version=`echo $v2ray_version_description | cut -d" " -f2`
-v2ray_folder="/usr/local/Cellar/v2ray-core/$v2ray_version/bin/"
+v2ray_folder="/usr/local/Cellar/v2ray-core/4.30.0/bin/"
 
 GREEN='\033[0;32m'
 NC='\033[0m'
