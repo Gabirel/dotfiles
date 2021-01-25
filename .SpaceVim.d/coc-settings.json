@@ -5,6 +5,11 @@
       "rootPatterns": ["go.mod"],
       "trace.server": "verbose",
       "filetypes": ["go"]
+    },
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
     }
   },
   "coc.source.file.ignoreHidden": false

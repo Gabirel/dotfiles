@@ -41,6 +41,7 @@ call SpaceVim#layers#load('lang#latex')
 call SpaceVim#layers#load('lang#lua')
 call SpaceVim#layers#load('lang#markdown')
 call SpaceVim#layers#load('lang#python')
+call SpaceVim#layers#load('lang#rust')
 call SpaceVim#layers#load('lang#swig')
 call SpaceVim#layers#load('lang#xml')
 " ############## SpaceVim Setting End  ########################
