@@ -147,32 +147,31 @@ let g:vimtex_view_automatic = 0
 
 
 " ############## Extra Plugins Setting Start ########################
-" No longer use YouCompleteMe anymore
+" Deprecated: No longer use YouCompleteMe anymore
 " {{ YouCompleteMe {{
-let g:spacevim_enable_ycm = 0
-let g:ycm_complete_in_comments = 1
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_seed_identifiers_with_syntax = 0
-let g:ycm_error_symbol = '✗'
-let g:ycm_warning_symbol = '!'
-let g:ycm_global_ycm_extra_conf = '~/.SpaceVim.d/.ycm_extra_conf.py'
-let g:ycm_semantic_triggers =  {
-  \   'c' : ['->', '.'],
-  \   'cpp,objcpp' : ['->', '.', '::'],
-  \   'php' : ['->', '::'],
-  \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-  \   'ruby' : ['.', '::'],
-  \   'lua' : ['.', ':'],
-  \ }
-let g:ycm_filetype_blacklist = { }
+" let g:spacevim_enable_ycm = 0
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_confirm_extra_conf = 0
+" let g:ycm_seed_identifiers_with_syntax = 0
+" let g:ycm_error_symbol = '✗'
+" let g:ycm_warning_symbol = '!'
+" let g:ycm_global_ycm_extra_conf = '~/.SpaceVim.d/.ycm_extra_conf.py'
+" let g:ycm_semantic_triggers =  {
+"   \   'c' : ['->', '.'],
+"   \   'cpp,objcpp' : ['->', '.', '::'],
+"   \   'php' : ['->', '::'],
+"   \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+"   \   'ruby' : ['.', '::'],
+"   \   'lua' : ['.', ':'],
+"   \ }
+" let g:ycm_filetype_blacklist = { }
 " YCM for vimtex
-au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+" au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 " }} YouCompleteMe }}
 " ############## Extra Plugins Setting End   ########################
 
 
 " ############## Custom Plugins in SpaceVim Start ########################
-" No longer use rdnetto/YCM-Generator
 let g:spacevim_custom_plugins = [
     \ ['machakann/vim-highlightedyank'],
     \ ['iloginow/vim-stylus'],
@@ -185,4 +184,8 @@ let g:spacevim_custom_plugins = [
 " ############## Custom Plugins Setting in SpaceVim Start ########################
 let g:sonokai_style = 'default'
 let g:sonokai_better_performance = 1
+let g:indentLine_setConceal = 0 " This is a bug: https://github.com/SpaceVim/SpaceVim/issues/4268
+" let g:vim_markdown_conceal = 0
+" let g:markdown_syntax_conceal = 0
+" set conceallevel=2
 " ############## Custom Plugins Setting in SpaceVim End  ########################
