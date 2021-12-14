@@ -3,10 +3,8 @@
 
 set -e
 
-# only works for macOS
-v2ray_version_description=`/usr/local/Cellar/v2ray-core/4.30.0/bin/xray --version`
-v2ray_version=`echo $v2ray_version_description | cut -d" " -f2`
-v2ray_folder="/usr/local/Cellar/v2ray-core/4.30.0/bin/"
+# only works for linux
+v2ray_folder="/usr/local/share/xray/"
 
 GREEN='\033[0;32m'
 NC='\033[0m'
