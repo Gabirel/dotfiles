@@ -10,7 +10,12 @@
       "command": "rust-analyzer",
       "filetypes": ["rust"],
       "rootPatterns": ["Cargo.toml"]
+    },
+    "latex": {
+      "command": "/usr/local/bin/texlab",
+      "filetypes": ["tex", "bib", "plaintex", "context"]
     }
   },
-  "coc.source.file.ignoreHidden": false
+  "coc.source.file.ignoreHidden": false,
+  "texlab.build.onSave": true
 }

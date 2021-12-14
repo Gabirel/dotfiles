@@ -57,6 +57,7 @@ let g:coc_global_extensions = [
       \ 'coc-vimlsp',
       \ 'coc-dictionary',
       \ 'coc-word',
+      \ 'coc-texlab',
       \ ]
 
 " Use `[g` and `]g` to navigate diagnostics
