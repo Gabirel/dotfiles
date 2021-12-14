@@ -4,9 +4,7 @@
 set -e
 
 # only works for macOS
-v2ray_version_description=`/usr/local/Cellar/v2ray-core/4.30.0/bin/xray --version`
-v2ray_version=`echo $v2ray_version_description | cut -d" " -f2`
-v2ray_folder="/usr/local/Cellar/v2ray-core/4.30.0/bin/"
+v2ray_folder="/usr/local/Cellar/v2ray-core/4.30.0/bin"
 
 GREEN='\033[0;32m'
 NC='\033[0m'
@@ -14,16 +12,20 @@ NC='\033[0m'
 GEOIP_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
 GEOSITE_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
 
-echo -e "${GREEN}>>> change directory...${NC}"
-cd $v2ray_folder
-
-echo -e "${GREEN}>>> delete old dat files...${NC}"
-rm -f geoip.dat geosite.dat
+GEOIP_NAME="geoip.dat"
+GEOSITE_NAME="geosite.dat"
 
 echo -e "${GREEN}>>> downloading geoip.dat files...${NC}"
 curl -L -O $GEOIP_URL
 
 echo -e "${GREEN}>>> downloading geosite.dat files...${NC}"
 curl -L -O $GEOSITE_URL
+
+echo -e "${GREEN}>>> delete old dat files...${NC}"
+rm -f $v2ray_folder/$GEOIP_NAME $v2ray_folder/$GEOSITE_NAME
+
+echo -e "${GREEN}>>> Replacing new geoip/geosite...${NC}"
+mv ./$GEOIP_NAME $v2ray_folder/
+mv ./$GEOSITE_NAME $v2ray_folder/
 
 echo -e "${GREEN}Finished!!${NC}"
