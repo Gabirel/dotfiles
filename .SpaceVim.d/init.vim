@@ -148,7 +148,9 @@ nnoremap <leader>v gqip
 
 " Disable all syntax conceal
 let g:vimtex_syntax_conceal_default = 0
-" Disable automatic view since I do not use `previewer` for viewing anymore
+" Disable automatic view since I use texlab with skim to preview in background
+" personally
+let g:vimtex_view_enabled = 0
 let g:vimtex_view_automatic = 0
 " }} vimtex }}
 " ############## Embedded Plugins Setting End   ########################

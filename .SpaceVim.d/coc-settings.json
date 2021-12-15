@@ -17,5 +17,8 @@
     }
   },
   "coc.source.file.ignoreHidden": false,
-  "texlab.build.onSave": true
+  "texlab.build.onSave": true,
+  "texlab.build.forwardSearchAfter": true,
+  "texlab.forwardSearch.executable": "/Applications/Skim.app/Contents/SharedSupport/displayline",
+  "texlab.forwardSearch.args": ["-g", "%l", "%p", "%f"]
 }
