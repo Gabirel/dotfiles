@@ -4,7 +4,7 @@
 set -e
 
 # only works for linux
-v2ray_folder="/usr/local/share/xray/"
+v2ray_folder="/usr/local/share/xray"
 
 YELLOW='\033[33m'
 GREEN='\033[0;32m'
