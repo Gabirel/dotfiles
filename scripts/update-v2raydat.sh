@@ -16,16 +16,17 @@ GEOIP_NAME="geoip.dat"
 GEOSITE_NAME="geosite.dat"
 
 echo -e "${GREEN}>>> downloading geoip.dat files...${NC}"
-curl -L -O $GEOIP_URL
+curl -L $GEOIP_URL --output /tmp/$GEOIP_NAME
 
 echo -e "${GREEN}>>> downloading geosite.dat files...${NC}"
-curl -L -O $GEOSITE_URL
+# curl -L -O $GEOSITE_URL
+curl -L $GEOSITE_URL --output /tmp/$GEOSITE_NAME
 
 echo -e "${GREEN}>>> delete old dat files...${NC}"
 rm -f $v2ray_folder/$GEOIP_NAME $v2ray_folder/$GEOSITE_NAME
 
 echo -e "${GREEN}>>> Replacing new geoip/geosite...${NC}"
-mv ./$GEOIP_NAME $v2ray_folder/
-mv ./$GEOSITE_NAME $v2ray_folder/
+mv /tmp/$GEOIP_NAME $v2ray_folder/
+mv /tmp/$GEOSITE_NAME $v2ray_folder/
 
 echo -e "${GREEN}Finished!!${NC}"
