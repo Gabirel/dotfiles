@@ -28,6 +28,9 @@ let g:spacevim_buffer_index_type = 4
 let g:spacevim_statusline_separator = 'arrow'
 let g:vimtex_quickfix_enabled = 0
 let g:spacevim_autocomplete_method = 'coc'
+" this is a bug, wait for it to be fixed
+let g:enable_smooth_scrolling = 0
+" let g:smoothie_enabled = 0
 
 " layers settings
 call SpaceVim#layers#load('checkers')
