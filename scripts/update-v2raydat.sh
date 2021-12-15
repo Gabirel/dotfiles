@@ -19,7 +19,6 @@ echo -e "${GREEN}>>> downloading geoip.dat files...${NC}"
 curl -L $GEOIP_URL --output /tmp/$GEOIP_NAME
 
 echo -e "${GREEN}>>> downloading geosite.dat files...${NC}"
-# curl -L -O $GEOSITE_URL
 curl -L $GEOSITE_URL --output /tmp/$GEOSITE_NAME
 
 echo -e "${GREEN}>>> delete old dat files...${NC}"
