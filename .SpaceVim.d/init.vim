@@ -2,9 +2,11 @@
 set wrap
 set guifont=JetBrainsMonoForPowerline-Regular:h20
 nmap <leader>y "+y
-" wrap when the character's value > 255 (Such as Chinese)
+" break at a multi-byte character above 255
+" check `:help fo-table`
 set formatoptions+=m
 " no spaces when merge multiple lines of chinese 
+" FYI: https://www.reddit.com/r/vim/comments/7566at/how_to_use_set_wrap_for_chinese/
 set formatoptions+=B
 " ############## Default Setting End   ########################
 
