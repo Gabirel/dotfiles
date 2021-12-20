@@ -2,6 +2,8 @@
 set wrap
 set guifont=JetBrainsMonoForPowerline-Regular:h20
 nmap <leader>y "+y
+" Wrap when the character's value > 255 (Such as Chinese)
+set formatoptions+=m
 " ############## Default Setting End   ########################
 
 
@@ -26,10 +28,9 @@ let g:spacevim_enable_statusline_mode = 1
 let g:spacevim_windows_index_type = 3
 let g:spacevim_buffer_index_type = 4
 let g:spacevim_statusline_separator = 'arrow'
-let g:vimtex_quickfix_enabled = 0
 let g:spacevim_autocomplete_method = 'coc'
 " this is a bug, wait for it to be fixed
-let g:enable_smooth_scrolling = 0
+let g:enable_smooth_scrolling = 1
 " let g:smoothie_enabled = 0
 
 " layers settings
@@ -149,8 +150,10 @@ nnoremap <leader>v gqip
 " See: http://vimdoc.sourceforge.net/htmldoc/syntax.html#g:tex_conceal
 " let g:tex_conceal = "abdg"
 
+let g:vimtex_quickfix_enabled = 0
+
 " Disable all syntax conceal
-let g:vimtex_syntax_conceal_default = 0
+let g:vimtex_syntax_conceal_disable = 1
 " Disable automatic view since I use texlab with skim to preview in background
 " personally
 let g:vimtex_view_enabled = 0
