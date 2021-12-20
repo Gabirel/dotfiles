@@ -2,8 +2,10 @@
 set wrap
 set guifont=JetBrainsMonoForPowerline-Regular:h20
 nmap <leader>y "+y
-" Wrap when the character's value > 255 (Such as Chinese)
+" wrap when the character's value > 255 (Such as Chinese)
 set formatoptions+=m
+" no spaces when merge multiple lines of chinese 
+set formatoptions+=B
 " ############## Default Setting End   ########################
 
 
