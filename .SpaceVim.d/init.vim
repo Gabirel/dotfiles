@@ -2,12 +2,6 @@
 set wrap
 set guifont=JetBrainsMonoForPowerline-Regular:h20
 nmap <leader>y "+y
-" break at a multi-byte character above 255
-" check `:help fo-table`
-set formatoptions+=m
-" no spaces when merge multiple lines of chinese 
-" FYI: https://www.reddit.com/r/vim/comments/7566at/how_to_use_set_wrap_for_chinese/
-set formatoptions+=B
 " ############## Default Setting End   ########################
 
 
@@ -144,6 +138,16 @@ let g:ale_tex_chktex_executable = ''
 " }} ale }}
 
 " {{ vimtex {{
+
+" If you use Asian language to write latex, you may want these config like I
+" do.
+" break at a multi-byte character above 255
+" check `:help fo-table`
+set formatoptions+=m
+" no spaces when merge multiple lines of chinese 
+" FYI: https://www.reddit.com/r/vim/comments/7566at/how_to_use_set_wrap_for_chinese/
+set formatoptions+=B
+
 " Special setting for latex files
 " Use `gggqG` to format long lines in Latex
 " Use `gq11j` to wrap the line you're on with the 11 below it
