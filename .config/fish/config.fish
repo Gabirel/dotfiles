@@ -17,7 +17,13 @@ if test (uname) = "Darwin"
     if command -s npm > /dev/null
         set -x PATH $PATH /usr/local/Cellar/node/14.5.0/bin
     end
-    
+
+    # add latex binary
+    if test -d /usr/local/texlive/2021/bin/
+        set -x PATH $PATH /usr/local/texlive/2021/bin/universal-darwin
+        # set -x PATH $PATH /usr/local/texlive/2021/bin/uni
+    end
+
     # reset activity monitor to bring column back
     alias monitor_reset="rm ~/Library/Preferences/com.apple.ActivityMonitor.plist"
 
