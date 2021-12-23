@@ -28,6 +28,7 @@ pre_install() {
         echo "acme.sh is not installed. Now install acme.sh" 1>&2 ; 
         curl https://get.acme.sh | sh
     fi
+    echo -e "${OK} ${GreenBG} 基础环境检查完成 ${Font}"
 }
 
 # check LUA_DNS config
@@ -42,7 +43,7 @@ env_check() {
         echo -e "${Error} ${RedBG} Environment Variable \$LUA_Email is not set ${Font}"
         exit 1
     fi
-
+    echo -e "${OK} ${GreenBG} LUA_DNS设置检测通过 ${Font}"
 }
 acme() {
     if "$HOME"/.acme.sh/acme.sh --issue --dns dns_lua -d "${domain}" -k ec-256 --force; then
