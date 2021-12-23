@@ -14,15 +14,6 @@ Font="\033[0m"
 OK="${Green}[OK]${Font}"
 Error="${Red}[错误]${Font}"
 
-script_check() {
-    # domain must be set
-    if [[ $# -ne 1 ]]; then
-        echo -e "${RedBG}>>> domain must be set!${NC}"
-        exit 1
-    fi
-    domain=$1
-}
-
 # 1. install socat: apt install socat -y
 # 2. install acme: curl https://get.acme.sh | sh
 pre_install() {
@@ -35,7 +26,7 @@ pre_install() {
 
 acme() {
 	"$HOME"/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-	echo -e "${OK} ${GreenBG} 使用letsencrypt的server，不使用ZeroSSL ${Font}"		
+	echo -e "${OK} ${GreenBG} 使用letsencrypt的server，不使用ZeroSSL ${Font}"
 
     if "$HOME"/.acme.sh/acme.sh --issue -d "${domain}" --standalone -k ec-256 --force --test; then
         echo -e "${OK} ${GreenBG} SSL 证书测试签发成功，开始正式签发 ${Font}"
@@ -67,7 +58,13 @@ after_install() {
     chmod +r /data/*
 }
 
-script_check
+# domain must be set
+if [[ $# -ne 1 ]]; then
+    echo -e "${RedBG}>>> domain must be set!${NC}"
+    exit 1
+fi
+domain=$1
+
 pre_install
 acme
 after_install
