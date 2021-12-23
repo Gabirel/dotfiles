@@ -16,3 +16,4 @@ sleep 1
 sleep 1
 chmod +r /data/*
 systemctl start nginx &> /dev/null
+systemctl restart xray &> /dev/null
