@@ -5,7 +5,7 @@ $Params = @{
 $Trigger = New-ScheduledTaskTrigger @Params
 
 $Params = @{
- "Execute"  = "C:\Users\youzh\Documents\update-v2raydat.bat"
+ "Execute"  = "C:\Users\youzh\Documents\update-v2raydat.vbs"
  "WorkingDirectory" = "C:\Users\youzh\Documents\"
 }
  
