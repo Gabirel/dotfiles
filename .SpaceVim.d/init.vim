@@ -27,9 +27,13 @@ let g:spacevim_windows_index_type = 3
 let g:spacevim_buffer_index_type = 4
 let g:spacevim_statusline_separator = 'arrow'
 let g:spacevim_autocomplete_method = 'coc'
-" this is a bug, wait for it to be fixed
-let g:enable_smooth_scrolling = 1
-" let g:smoothie_enabled = 0
+
+" core settings: https://github.com/SpaceVim/SpaceVim/pull/4545#issuecomment-1003721728
+call SpaceVim#layers#load('core',
+    \ {
+    \  'enable_smooth_scrolling' : v:true,
+    \ }
+    \ )
 
 " layers settings
 call SpaceVim#layers#load('checkers')
