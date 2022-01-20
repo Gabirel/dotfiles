@@ -2,5 +2,12 @@
 
 Author: [youzhiye](https://github.com/youzhiye)
 
-Note: Remeber to change your own path
+Note1: Remeber to change your own path
+
+Note2: Allow your system to execute powershell scripts by using the following command:
+
+```ps1
+set-executionpolicy remotesigned
+```
+
 
