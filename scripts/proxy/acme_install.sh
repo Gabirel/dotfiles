@@ -17,8 +17,8 @@ Error="${Red}[错误]${Font}"
 # 1. install socat: apt install socat -y
 # 2. install acme: curl https://get.acme.sh | sh
 pre_install() {
-    # 1. install socat
-    apt install socat -y
+    # 1. install socat & crontab
+    apt install socat cron -y
 
     # 2. install acme
     curl https://get.acme.sh | sh
