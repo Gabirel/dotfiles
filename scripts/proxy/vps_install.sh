@@ -125,21 +125,21 @@ fi
 domain=$1
 
 pre_install
-echo -e "${OK} ${GreenBG} 环境预安装完成 $uuid ${NC}"
+echo -e "${OK} ${GreenBG} 环境预安装完成${NC}"
 
 install_xray
-echo -e "${OK} ${GreenBG} xray安装完成 $uuid ${NC}"
+echo -e "${OK} ${GreenBG} xray安装完成${NC}"
 
 config_xray
-echo -e "${OK} ${GreenBG} xray配置完成 $uuid ${NC}"
+echo -e "${OK} ${GreenBG} xray配置完成${NC}"
 
 install_acme $domain
-echo -e "${OK} ${GreenBG} acme安装完成 $uuid ${NC}"
+echo -e "${OK} ${GreenBG} acme安装完成${NC}"
 
 install_crontab $domain
-echo -e "${OK} ${GreenBG} crontab安装完成 $uuid ${NC}"
+echo -e "${OK} ${GreenBG} crontab安装完成${NC}"
 
 post_install
-echo -e "${OK} ${GreenBG} post安装完成 $uuid ${NC}"
+echo -e "${OK} ${GreenBG} post安装完成${NC}"
 
 echo_xray_uuid
