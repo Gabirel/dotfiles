@@ -79,7 +79,7 @@ install_crontab() {
 
     # 3. link crontab task
     ln -f ssl_update.sh /usr/local/bin/ssl_update
-    ln -f update_v2raydat-vps.sh /usr/local/bin/update-v2raydat-vps
+    ln -f update-v2raydat-vps.sh /usr/local/bin/update-v2raydat-vps
 
     # 4. write to crontabs
     echo "0 3 * * * ssl_update $domain > /dev/null" >> /etc/cron.d/proxy_tasks
