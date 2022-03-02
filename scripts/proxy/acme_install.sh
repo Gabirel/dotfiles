@@ -22,6 +22,9 @@ pre_install() {
 
     # 2. install acme
     curl https://get.acme.sh | sh
+
+    # 3. stop nginx
+    systemctl stop nginx
 }
 
 acme() {
