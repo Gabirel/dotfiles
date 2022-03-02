@@ -106,10 +106,14 @@ post_install() {
 
     # 2. restart xray nginx
     systemctl restart xray nginx
+
+    # 3. clean up
+    rm -rf ./template.json
 }
 
 echo_xray_uuid() {
-
+    current_config_xray='/usr/local/etc/xray/config.json'
+    uuid=`jq -r '.inbounds[].settings.clients[].id' $current_config_xray`
     echo -e "${OK} ${GreenBG} Your uuid: $uuid ${NC}"
 }
 
