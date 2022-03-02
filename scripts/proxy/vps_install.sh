@@ -27,8 +27,6 @@ pre_install() {
 
 # install xray related
 install_xray() {
-    systemctl stop nginx
-
     # 1. install xray using official scripts
     bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
 
@@ -37,6 +35,8 @@ install_xray() {
 }
 
 install_acme() {
+    systemctl stop nginx
+
     domain=$1
 
     # 1. download acme scripts
