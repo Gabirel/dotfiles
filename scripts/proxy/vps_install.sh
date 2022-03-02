@@ -8,6 +8,7 @@ Red="\033[31m"
 GreenBG="\033[42;37m"
 RedBG="\033[41;37m"
 Font="\033[0m"
+NC="\033[0m"
 
 #notification information
 # Info="${Green}[信息]${Font}"
@@ -106,6 +107,11 @@ post_install() {
     systemctl restart xray nginx
 }
 
+echo_xray_uuid() {
+
+    echo -e "${OK} ${GreenBG} Your uuid: $uuid ${Font}"
+}
+
 # domain must be set
 if [[ $# -ne 1 ]]; then
     echo -e "${RedBG}>>> domain must be set!${NC}"
@@ -131,3 +137,4 @@ echo -e "${OK} ${GreenBG} crontab安装完成 $uuid ${Font}"
 post_install
 echo -e "${OK} ${GreenBG} post安装完成 $uuid ${Font}"
 
+echo_xray_uuid
