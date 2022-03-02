@@ -2,6 +2,14 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
+#fonts color
+Green="\033[32m"
+Red="\033[31m"
+# Yellow="\033[33m"
+GreenBG="\033[42;37m"
+RedBG="\033[41;37m"
+NC="\033[0m"
+
 # domain must be set
 if [[ $# -ne 1 ]]; then
     echo -e "${RedBG}>>> domain must be set!${NC}"

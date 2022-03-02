@@ -7,13 +7,12 @@ Red="\033[31m"
 # Yellow="\033[33m"
 GreenBG="\033[42;37m"
 RedBG="\033[41;37m"
-Font="\033[0m"
 NC="\033[0m"
 
 #notification information
-# Info="${Green}[信息]${Font}"
-OK="${Green}[OK]${Font}"
-Error="${Red}[错误]${Font}"
+# Info="${Green}[信息]${NC}"
+OK="${Green}[OK]${NC}"
+Error="${Red}[错误]${NC}"
 
 # configure for server environment
 pre_install() {
@@ -28,6 +27,8 @@ pre_install() {
 
 # install xray related
 install_xray() {
+    systemctl stop nginx
+
     # 1. install xray using official scripts
     bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
 
@@ -88,7 +89,7 @@ install_crontab() {
 config_xray() {
     # 1. generate new uuid
     uuid=`xray uuid`
-    echo -e "${OK} ${GreenBG} uuid: $uuid ${Font}"
+    echo -e "${OK} ${GreenBG} uuid: $uuid ${NC}"
 
     # 2. download template json using base64
     template_json="ewogICJsb2ciOiB7CiAgICAibG9nbGV2ZWwiOiAid2FybmluZyIKICB9LAogICJpbmJvdW5kcyI6IFsKICAgIHsKICAgICAgInNuaWZmaW5nIjogewogICAgICAgICJlbmFibGVkIjogdHJ1ZSwKICAgICAgICAiZGVzdE92ZXJyaWRlIjogWwogICAgICAgICAgImh0dHAiLAogICAgICAgICAgInRscyIKICAgICAgICBdCiAgICAgIH0sCiAgICAgICJwb3J0IjogNDQzLAogICAgICAicHJvdG9jb2wiOiAidmxlc3MiLAogICAgICAic2V0dGluZ3MiOiB7CiAgICAgICAgImNsaWVudHMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJ4eCIsCiAgICAgICAgICAgICJmbG93IjogInh0bHMtcnByeC1kaXJlY3QiLAogICAgICAgICAgICAibGV2ZWwiOiAwLAogICAgICAgICAgICAiZW1haWwiOiAibG92ZUB2MmZseS5vcmciCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiZGVjcnlwdGlvbiI6ICJub25lIiwKICAgICAgICAiZmFsbGJhY2tzIjogWwogICAgICAgICAgewogICAgICAgICAgICAiYWxwbiI6ICIiLAogICAgICAgICAgICAicGF0aCI6ICIiLAogICAgICAgICAgICAiZGVzdCI6IDgwLAogICAgICAgICAgICAieHZlciI6IDAKICAgICAgICAgIH0KICAgICAgICBdCiAgICAgIH0sCiAgICAgICJzdHJlYW1TZXR0aW5ncyI6IHsKICAgICAgICAibmV0d29yayI6ICJ0Y3AiLAogICAgICAgICJzZWN1cml0eSI6ICJ4dGxzIiwKICAgICAgICAieHRsc1NldHRpbmdzIjogewogICAgICAgICAgImFscG4iOiBbCiAgICAgICAgICAgICJodHRwLzEuMSIKICAgICAgICAgIF0sCiAgICAgICAgICAiY2VydGlmaWNhdGVzIjogWwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImNlcnRpZmljYXRlRmlsZSI6ICIvZGF0YS92MnJheS5jcnQiLAogICAgICAgICAgICAgICJrZXlGaWxlIjogIi9kYXRhL3YycmF5LmtleSIKICAgICAgICAgICAgfQogICAgICAgICAgXQogICAgICAgIH0KICAgICAgfQogICAgfQogIF0sCiAgIm91dGJvdW5kcyI6IFsKICAgIHsKICAgICAgInByb3RvY29sIjogImZyZWVkb20iLAogICAgICAic2V0dGluZ3MiOiB7fQogICAgfSwKICAgIHsKICAgICAgInByb3RvY29sIjogImJsYWNraG9sZSIsCiAgICAgICJzZXR0aW5ncyI6IHt9LAogICAgICAidGFnIjogImJsb2NrIgogICAgfQogIF0sCiAgImRucyI6IHsKICAgICJzZXJ2ZXJzIjogWwogICAgICAiaHR0cHMrbG9jYWw6Ly9kbnMuYWRndWFyZC5jb20vZG5zLXF1ZXJ5IgogICAgXSwKICAgICJxdWVyeVN0cmF0ZWd5IjogIlVzZUlQdjQiCiAgfSwKICAicm91dGluZyI6IHsKICAgICJkb21haW5TdHJhdGVneSI6ICJJUElmTm9uTWF0Y2giLAogICAgInJ1bGVzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiZmllbGQiLAogICAgICAgICJvdXRib3VuZFRhZyI6ICJibG9jayIsCiAgICAgICAgInByb3RvY29sIjogWwogICAgICAgICAgImJpdHRvcnJlbnQiCiAgICAgICAgXQogICAgICB9LAoJCQl7CiAgICAgICAgInR5cGUiOiAiZmllbGQiLAogICAgICAgICJkb21haW4iOiBbCiAgICAgICAgICAiZ2Vvc2l0ZTpnb29nbGUiCiAgICAgICAgXSwKICAgICAgICAib3V0Ym91bmRUYWciOiAiZnJlZWRvbSIKICAgICAgfSwKICAgICAgewogICAgICAgICJ0eXBlIjogImZpZWxkIiwKICAgICAgICAiZG9tYWluIjogWwogICAgICAgICAgImdlb3NpdGU6Y2F0ZWdvcnktYWRzLWFsbCIsCiAgICAgICAgICAiZ2Vvc2l0ZTpjbiIKICAgICAgICBdLAogICAgICAgICJvdXRib3VuZFRhZyI6ICJibG9jayIKICAgICAgfSwKICAgICAgewogICAgICAgICJ0eXBlIjogImZpZWxkIiwKICAgICAgICAiaXAiOiBbCiAgICAgICAgICAiZ2VvaXA6Y24iLAogICAgICAgICAgImdlb2lwOnByaXZhdGUiCiAgICAgICAgXSwKICAgICAgICAib3V0Ym91bmRUYWciOiAiYmxvY2siCiAgICAgIH0KICAgIF0KICB9Cn0="
@@ -109,7 +110,7 @@ post_install() {
 
 echo_xray_uuid() {
 
-    echo -e "${OK} ${GreenBG} Your uuid: $uuid ${Font}"
+    echo -e "${OK} ${GreenBG} Your uuid: $uuid ${NC}"
 }
 
 # domain must be set
@@ -120,21 +121,21 @@ fi
 domain=$1
 
 pre_install
-echo -e "${OK} ${GreenBG} 环境预安装完成 $uuid ${Font}"
+echo -e "${OK} ${GreenBG} 环境预安装完成 $uuid ${NC}"
 
 install_xray
-echo -e "${OK} ${GreenBG} xray安装完成 $uuid ${Font}"
+echo -e "${OK} ${GreenBG} xray安装完成 $uuid ${NC}"
 
 config_xray
-echo -e "${OK} ${GreenBG} xray配置完成 $uuid ${Font}"
+echo -e "${OK} ${GreenBG} xray配置完成 $uuid ${NC}"
 
 install_acme $domain
-echo -e "${OK} ${GreenBG} acme安装完成 $uuid ${Font}"
+echo -e "${OK} ${GreenBG} acme安装完成 $uuid ${NC}"
 
 install_crontab $domain
-echo -e "${OK} ${GreenBG} crontab安装完成 $uuid ${Font}"
+echo -e "${OK} ${GreenBG} crontab安装完成 $uuid ${NC}"
 
 post_install
-echo -e "${OK} ${GreenBG} post安装完成 $uuid ${Font}"
+echo -e "${OK} ${GreenBG} post安装完成 $uuid ${NC}"
 
 echo_xray_uuid
