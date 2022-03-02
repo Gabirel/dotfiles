@@ -20,7 +20,7 @@ pre_install() {
     apt update -y
 
     # 1. install all needed tools
-    apt install socat cron nginx fish git wget curl htop tree iperf3 rsync jq -y
+    apt install socat cron nginx fish vim git wget curl htop tree iperf3 rsync jq -y
 
     # 2. change default to fish
     chsh -s /usr/bin/fish
