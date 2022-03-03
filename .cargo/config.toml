@@ -6,3 +6,11 @@ replace-with = 'ustc'
 
 [source.ustc]
 registry = "git://mirrors.ustc.edu.cn/crates.io-index"
+
+
+# enable for CLION
+[http]
+proxy = "127.0.0.1:1087"
+
+[https]
+proxy = "127.0.0.1:1087"
