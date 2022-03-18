@@ -83,8 +83,8 @@ install_crontab() {
 
     # 4. write to crontabs
     crontab_path='/var/spool/cron/crontabs/root'
-    echo "0 3 * * * ssl_update $domain > /dev/null" >> $crontab_path
-    echo "9 3 * * * update-v2raydat-vps > /dev/null" >> $crontab_path
+    echo "0 3 * * * /usr/local/bin/ssl_update $domain >/dev/null 2>&1" >> $crontab_path
+    echo "9 3 * * * /usr/local/bin/update-v2raydat-vps >/dev/null 2>&1" >> $crontab_path
 }
 
 config_xray() {
