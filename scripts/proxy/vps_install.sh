@@ -27,14 +27,15 @@ pre_install() {
 
 install_trace() {
     # 1. download besttrace
-    wget https://cdn.ipip.net/17mon/besttrace4linux.zip -O /tmp/besttrace.zip
+    $besttrace_dump=/tmp/besttrace.zip
+    wget https://cdn.ipip.net/17mon/besttrace4linux.zip -O $besttrace_dump
     if [ $? -ne 0 ]; then
         echo -e "${RedBG}>>> Failed to download besttrace!${NC}"
         exit 1
     fi
 
-    unzip /tmp/besttrace.zip
-    chmod +x /tmp/besttrace/besttrace
+    unzip $besttrace_dump
+    chmod +x /tmp/besttrace
     ln -f /tmp/besttrace/besttrace /usr/local/bin/besttrace
 
     # 2. download worsttrace 
