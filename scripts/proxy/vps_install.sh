@@ -25,6 +25,28 @@ pre_install() {
     chsh -s /usr/bin/fish
 }
 
+install_trace() {
+    # 1. download besttrace
+    wget https://cdn.ipip.net/17mon/besttrace4linux.zip -O /tmp/besttrace.zip
+    if [ $? -ne 0 ]; then
+        echo -e "${RedBG}>>> Failed to download besttrace!${NC}"
+        exit 1
+    fi
+
+    unzip /tmp/besttrace.zip
+    chmod +x /tmp/besttrace/besttrace
+    ln -f /tmp/besttrace/besttrace /usr/local/bin/besttrace
+
+    # 2. download worsttrace 
+    wget https://pkg.wtrace.app/linux/worsttrace -O /tmp/worsttrace
+    if [ $? -ne 0 ]; then
+        echo -e "${RedBG}>>> Failed to download worsttrace scripts!${NC}"
+        exit 1
+    fi
+    chmod +x /tmp/worsttrace
+    ln -f /tmp/worsttrace /usr/local/bin/worsttrace
+}
+
 # install xray related
 install_xray() {
     # 1. install xray using official scripts
@@ -127,6 +149,9 @@ domain=$1
 
 pre_install
 echo -e "${OK} ${GreenBG} 环境预安装完成${NC}"
+
+install_trace
+echo -e "${OK} ${GreenBG} 安装Trace工具(besttrace & worsttrace)完成${NC}"
 
 install_xray
 echo -e "${OK} ${GreenBG} xray安装完成${NC}"
