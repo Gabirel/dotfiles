@@ -34,9 +34,9 @@ install_trace() {
         exit 1
     fi
 
-    unzip $besttrace_dump
+    unzip $besttrace_dump -d /tmp/
     chmod +x /tmp/besttrace
-    ln -f /tmp/besttrace/besttrace /usr/local/bin/besttrace
+    ln -f /tmp/besttrace /usr/local/bin/besttrace
 
     # 2. download worsttrace 
     wget https://pkg.wtrace.app/linux/worsttrace -O /tmp/worsttrace
