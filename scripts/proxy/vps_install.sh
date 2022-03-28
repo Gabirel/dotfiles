@@ -135,6 +135,12 @@ post_install() {
     rm -rf ./template.json
 }
 
+bbr_install() {
+    echo "net.core.default_qdisc = fq" >> /etc/sysctl.conf
+    echo "net.ipv4.tcp_congestion_control = bbr" >> /etc/sysctl.conf
+    sysctl -p
+}
+
 echo_xray_uuid() {
     current_config_xray='/usr/local/etc/xray/config.json'
     uuid=`jq -r '.inbounds[].settings.clients[].id' $current_config_xray`
@@ -168,5 +174,8 @@ echo -e "${OK} ${GreenBG} crontab安装完成${NC}"
 
 post_install
 echo -e "${OK} ${GreenBG} post安装完成${NC}"
+
+bbr_install
+echo -e "${OK} ${GreenBG} BBR + FQ 安装完成${NC}"
 
 echo_xray_uuid
