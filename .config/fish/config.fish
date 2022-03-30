@@ -18,6 +18,14 @@ if test (uname) = "Darwin"
         set -x PATH $PATH /usr/local/Cellar/node/14.5.0/bin
     end
 
+    # ruby environment
+    if command -s ruby-install > /dev/null
+        source /usr/local/share/chruby/chruby.fish
+        source /usr/local/share/chruby/auto.fish
+        # make sure version is correct
+        chruby ruby-3.1.1
+    end
+
     # add latex binary
     if test -d /usr/local/texlive/2021/bin/
         set -x PATH $PATH /usr/local/texlive/2021/bin/universal-darwin
