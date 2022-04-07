@@ -123,6 +123,18 @@ config_xray() {
     jq --arg variable "$uuid" '.inbounds[].settings.clients[].id = $variable' template.json > /usr/local/etc/xray/config.json
 }
 
+config_nginx() {
+    # 1. backup original nginx config
+    cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
+
+    # 2. download nginx config
+    wget https://github.com/Gabirel/dotfiles/blob/master/data/config/nginx/nginx.conf -O /etc/nginx/nginx.conf
+    if [ $? -ne 0 ]; then
+        echo -e "${RedBG}>>> Failed to download nginx conf!${NC}"
+        exit 1
+    fi
+    echo -e "${OK} ${GreenBG} nginx配置文件下载完成"
+}
 
 post_install() {
     # 1. update geo file
@@ -165,6 +177,9 @@ echo -e "${OK} ${GreenBG} xray安装完成${NC}"
 
 config_xray
 echo -e "${OK} ${GreenBG} xray配置完成${NC}"
+
+config_nginx
+echo -e "${OK} ${GreenBG} nginx配置完成${NC}"
 
 install_acme $domain
 echo -e "${OK} ${GreenBG} acme安装完成${NC}"
