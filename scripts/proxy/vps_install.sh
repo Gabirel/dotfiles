@@ -125,7 +125,7 @@ config_xray() {
 
 config_nginx() {
     # 1. backup original nginx config
-    cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
+    mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
 
     # 2. download nginx config
     wget https://raw.githubusercontent.com/Gabirel/dotfiles/master/data/config/nginx/nginx.conf -O /etc/nginx/nginx.conf
