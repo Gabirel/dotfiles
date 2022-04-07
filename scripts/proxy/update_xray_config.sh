@@ -42,10 +42,17 @@ echo_xray_uuid() {
     echo -e "${OK} ${GreenBG} Your uuid: $uuid ${NC}"
 }
 
+restart_services() {
+    systemctl restart xray nginx
+}
+
 pre_install
 echo -e "${OK} ${GreenBG} 环境预安装完成${NC}"
 
 update_config_xray
 echo -e "${OK} ${GreenBG} xray配置修改完成${NC}"
+
+restart_services
+echo -e "${OK} ${GreenBG} xray和nginx服务重启完成${NC}"
 
 echo_xray_uuid
