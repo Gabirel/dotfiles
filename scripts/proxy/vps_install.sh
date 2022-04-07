@@ -128,7 +128,7 @@ config_nginx() {
     cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
 
     # 2. download nginx config
-    wget https://github.com/Gabirel/dotfiles/blob/master/data/config/nginx/nginx.conf -O /etc/nginx/nginx.conf
+    wget https://raw.githubusercontent.com/Gabirel/dotfiles/master/data/config/nginx/nginx.conf -O /etc/nginx/nginx.conf
     if [ $? -ne 0 ]; then
         echo -e "${RedBG}>>> Failed to download nginx conf!${NC}"
         exit 1
