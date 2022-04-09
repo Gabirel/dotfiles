@@ -7,12 +7,12 @@ Red="\033[31m"
 # Yellow="\033[33m"
 GreenBG="\033[42;37m"
 RedBG="\033[41;37m"
-Font="\033[0m"
+NC="\033[0m"
 
 #notification information
-# Info="${Green}[信息]${Font}"
-OK="${Green}[OK]${Font}"
-Error="${Red}[错误]${Font}"
+# Info="${Green}[信息]${NC}"
+OK="${Green}[OK]${NC}"
+Error="${Red}[错误]${NC}"
 
 # 1. install socat: apt install socat -y
 # 2. install acme: curl https://get.acme.sh | sh
@@ -28,34 +28,37 @@ pre_install() {
         echo "acme.sh is not installed. Now install acme.sh" 1>&2 ; 
         curl https://get.acme.sh | sh
     fi
-    echo -e "${OK} ${GreenBG} 基础环境检查完成 ${Font}"
+    echo -e "${OK} ${GreenBG} 基础环境检查完成 ${NC}"
 }
 
 # check LUA_DNS config
 env_check() {
     # export LUA_Key="xxxxxxxxxxxxxxxxxxxxxxxx"
     if test -z "$LUA_Key"; then
-        echo -e "${Error} ${RedBG} Environment Variable \$LUA_Key is not set ${Font}"
+        echo -e "${Error} ${RedBG} Environment Variable \$LUA_Key is not set ${NC}"
         exit 1
     fi
     # export LUA_Email="xxxx@xxx.com"
     if test -z "$LUA_Email"; then
-        echo -e "${Error} ${RedBG} Environment Variable \$LUA_Email is not set ${Font}"
+        echo -e "${Error} ${RedBG} Environment Variable \$LUA_Email is not set ${NC}"
         exit 1
     fi
-    echo -e "${OK} ${GreenBG} LUA_DNS设置检测通过 ${Font}"
+    echo -e "${OK} ${GreenBG} LUA_DNS设置检测通过 ${NC}"
 }
 acme() {
+    "$HOME"/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+	echo -e "${OK} ${GreenBG} 使用letsencrypt的server，不使用ZeroSSL ${NC}"
+
     if "$HOME"/.acme.sh/acme.sh --issue --dns dns_lua -d "${domain}" -k ec-256 --force; then
-        echo -e "${OK} ${GreenBG} SSL 证书生成成功 ${Font}"
+        echo -e "${OK} ${GreenBG} SSL 证书生成成功 ${NC}"
         sleep 2
         mkdir /data
         if "$HOME"/.acme.sh/acme.sh --installcert -d "${domain}" --fullchainpath /data/v2ray.crt --keypath /data/v2ray.key --ecc --force; then
-            echo -e "${OK} ${GreenBG} 证书配置成功 ${Font}"
+            echo -e "${OK} ${GreenBG} 证书配置成功 ${NC}"
             sleep 2
         fi
     else
-        echo -e "${Error} ${RedBG} SSL 证书生成失败 ${Font}"
+        echo -e "${Error} ${RedBG} SSL 证书生成失败 ${NC}"
         rm -rf "$HOME/.acme.sh/${domain}_ecc"
         exit 1
     fi
