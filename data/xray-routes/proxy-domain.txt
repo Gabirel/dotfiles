@@ -7,10 +7,6 @@ geosite:appledaily
 geosite:github
 geosite:twitter
 geosite:amp
-domain:ytimg.com
-domain:ggpht.com
-domain:humblebundle.com
-domain:analytics.twitter.com
 domain:g.whatsapp.net
 t.me
 tdesktop.com

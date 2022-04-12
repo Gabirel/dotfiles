@@ -42,5 +42,3 @@ wlmonitor
 zjtoolbar
 adsrvr
 gdt
-domain:downloads.pdfexpert.com
-domain:downloads.pdfexpert.org
