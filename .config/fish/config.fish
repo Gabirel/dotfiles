@@ -36,11 +36,11 @@ if test (uname) = "Darwin"
     alias monitor_reset="rm ~/Library/Preferences/com.apple.ActivityMonitor.plist"
 
     # proxy related with privoxy
-    set -x http_proxy http://127.0.0.1:8118
-    set -x https_proxy http://127.0.0.1:8118
+    set -x http_proxy http://127.0.0.1:1087
+    set -x https_proxy http://127.0.0.1:1087
     function pprivoxy -d "set proxy forwarding to privoxy, then to the proxy server"
-        set -g -x http_proxy http://127.0.0.1:8118
-        and set -g -x https_proxy http://127.0.0.1:8118
+        set -g -x http_proxy http://127.0.0.1:1087
+        and set -g -x https_proxy http://127.0.0.1:1087
     end
     function unprivoxy -d "unset proxy forwarding to privoxy"
         set -e http_proxy
