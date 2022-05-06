@@ -159,12 +159,30 @@ echo_xray_uuid() {
     echo -e "${OK} ${GreenBG} Your uuid: $uuid ${NC}"
 }
 
+# check LUA_DNS config
+env_check() {
+    # export LUA_Key="xxxxxxxxxxxxxxxxxxxxxxxx"
+    if test -z "$LUA_Key"; then
+        echo -e "${Error} ${RedBG} Environment Variable \$LUA_Key is not set ${NC}"
+        exit 1
+    fi
+    # export LUA_Email="xxxx@xxx.com"
+    if test -z "$LUA_Email"; then
+        echo -e "${Error} ${RedBG} Environment Variable \$LUA_Email is not set ${NC}"
+        exit 1
+    fi
+    echo -e "${OK} ${GreenBG} LUA_DNS设置检测通过 ${NC}"
+}
+
 # domain must be set
 if [[ $# -ne 1 ]]; then
     echo -e "${RedBG}>>> domain must be set!${NC}"
     exit 1
 fi
 domain=$1
+
+env_check
+echo -e "${OK} ${GreenBG} 环境变量检查完成${NC}"
 
 pre_install
 echo -e "${OK} ${GreenBG} 环境预安装完成${NC}"
