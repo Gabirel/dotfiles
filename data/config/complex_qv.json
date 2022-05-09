@@ -96,8 +96,22 @@
         },
         {
             "QV2RAY_OUTBOUND_METADATA": {
+                "connectionId": "bvwdtceqknii",
+                "displayName": "A0-HK-IPLC独立",
+                "metaType": 1
+            }
+        },
+        {
+            "QV2RAY_OUTBOUND_METADATA": {
                 "connectionId": "hulmjhuchota",
                 "displayName": "A1-SG-IPLC中转-makali.ga（100M流媒体）",
+                "metaType": 1
+            }
+        },
+        {
+            "QV2RAY_OUTBOUND_METADATA": {
+                "connectionId": "cokaikypqwuf",
+                "displayName": "JP-burnbu.ml",
                 "metaType": 1
             }
         },
@@ -147,12 +161,13 @@
         "balancers": [
             {
                 "selector": [
-                    "A0-HK-IPLC"
+                    "A0-HK-IPLC",
+                    "A0-HK-IPLC独立"
                 ],
                 "strategy": {
                     "type": "random"
                 },
-                "tag": "Balancer-google"
+                "tag": "Balancer-iplc"
             },
             {
                 "selector": [
@@ -171,6 +186,15 @@
                     "type": "random"
                 },
                 "tag": "Balancer-proxy"
+            },
+            {
+                "selector": [
+                    "JP-burnbu.ml"
+                ],
+                "strategy": {
+                    "type": "random"
+                },
+                "tag": "Balancer_Youtube"
             }
         ],
         "domainStrategy": "IPIfNonMatch",
@@ -180,7 +204,7 @@
                 "QV2RAY_RULE_TAG": "Non-block",
                 "balancerTag": "Balancer-proxy",
                 "domain": [
-                    "domain:api2.poperblocker.com",
+                    "domain:blog.logrocket.com",
                     "domain:click.pstmrk.it"
                 ],
                 "inboundTag": [
@@ -262,10 +286,36 @@
             },
             {
                 "QV2RAY_RULE_ENABLED": true,
+                "QV2RAY_RULE_TAG": "YouTube",
+                "balancerTag": "Balancer_Youtube",
+                "domain": [
+                    "geosite:youtube"
+                ],
+                "inboundTag": [
+                    "socks",
+                    "http"
+                ],
+                "type": "field"
+            },
+            {
+                "QV2RAY_RULE_ENABLED": true,
                 "QV2RAY_RULE_TAG": "Google",
-                "balancerTag": "Balancer-google",
+                "balancerTag": "Balancer-iplc",
                 "domain": [
                     "geosite:google"
+                ],
+                "inboundTag": [
+                    "socks",
+                    "http"
+                ],
+                "type": "field"
+            },
+            {
+                "QV2RAY_RULE_ENABLED": true,
+                "QV2RAY_RULE_TAG": "IPLC",
+                "balancerTag": "Balancer-iplc",
+                "domain": [
+                    "domain:stackoverflow.com"
                 ],
                 "inboundTag": [
                     "socks",
