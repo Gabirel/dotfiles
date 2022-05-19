@@ -57,13 +57,14 @@ call SpaceVim#layers#load('lang#xml')
 " {{ coc {{
 let g:coc_config_home = '~/.SpaceVim.d/'
 let g:coc_global_extensions = [
+      \ 'coc-dictionary',
+      \ 'coc-markdownlint',
       \ 'coc-go', 
       \ 'coc-rust-analyzer',
       \ 'coc-sh', 
-      \ 'coc-vimlsp',
-      \ 'coc-dictionary',
-      \ 'coc-word',
       \ 'coc-texlab',
+      \ 'coc-vimlsp',
+      \ 'coc-word',
       \ ]
 
 " Use `[g` and `]g` to navigate diagnostics
