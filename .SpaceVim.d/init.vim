@@ -28,17 +28,11 @@ let g:spacevim_buffer_index_type = 4
 let g:spacevim_statusline_separator = 'arrow'
 let g:spacevim_autocomplete_method = 'coc'
 
-" core settings: https://github.com/SpaceVim/SpaceVim/pull/4545#issuecomment-1003721728
-call SpaceVim#layers#load('core',
-    \ {
-    \  'enable_smooth_scrolling' : v:true,
-    \ }
-    \ )
-
 " layers settings
 call SpaceVim#layers#load('checkers')
 call SpaceVim#layers#load('colorscheme')
 call SpaceVim#layers#load('fzf')
+call SpaceVim#layers#load('shell')
 "call SpaceVim#layers#load('git')
 call SpaceVim#layers#load('VersionControl')
 call SpaceVim#layers#load('lang#c')
@@ -52,6 +46,22 @@ call SpaceVim#layers#load('lang#swig')
 call SpaceVim#layers#load('lang#xml')
 " ############## SpaceVim Setting End  ########################
 
+" ############## SpaceVim Layers Options Start  ########################
+" layer: core 
+" core settings: https://github.com/SpaceVim/SpaceVim/pull/4545#issuecomment-1003721728
+call SpaceVim#layers#load('core',
+    \ {
+    \  'enable_smooth_scrolling' : v:true,
+    \ }
+    \ )
+
+" layer: shell
+call SpaceVim#layers#load('shell',
+    \ {
+    \  'default_position' : 'bottom',
+    \ }
+    \ )
+" ############## SpaceVim Layers Options End  ########################
 
 " ############## Embedded Plugins Setting Start ########################
 " {{ coc {{
