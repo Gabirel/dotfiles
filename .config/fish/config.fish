@@ -2,6 +2,11 @@
 if test (uname) = "Darwin"
     set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
 
+    # add sbin
+    if test -d /usr/local/sbin/
+        set -x PATH $PATH /usr/local/sbin/
+    end
+
     # read .linuxify
     if test -f $HOME/.linuxify
         source $HOME/.linuxify
@@ -29,7 +34,6 @@ if test (uname) = "Darwin"
     # add latex binary
     if test -d /usr/local/texlive/2021/bin/
         set -x PATH $PATH /usr/local/texlive/2021/bin/universal-darwin
-        # set -x PATH $PATH /usr/local/texlive/2021/bin/uni
     end
 
     # reset activity monitor to bring column back
