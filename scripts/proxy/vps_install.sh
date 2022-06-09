@@ -39,7 +39,7 @@ install_trace() {
     ln -f /tmp/besttrace /usr/local/bin/besttrace
 
     # 2. download worsttrace 
-    wget https://pkg.wtrace.app/linux/worsttrace -O /tmp/worsttrace
+    wget https://wtrace.app/packages/linux/worsttrace -O /tmp/worsttrace
     if [ $? -ne 0 ]; then
         echo -e "${RedBG}>>> Failed to download worsttrace scripts!${NC}"
         exit 1
