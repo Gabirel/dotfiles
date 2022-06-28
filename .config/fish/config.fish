@@ -4,7 +4,12 @@ if test (uname) = "Darwin"
 
     # add sbin
     if test -d /usr/local/sbin/
-        set -x PATH $PATH /usr/local/sbin/
+        set -x PATH $PATH /usr/local/sbin
+    end
+
+    # add Apple-Sillicon support for homebrew
+    if test -d /opt/homebrew/bin
+        set -x PATH $PATH /opt/homebrew/bin
     end
 
     # read .linuxify
@@ -40,8 +45,8 @@ if test (uname) = "Darwin"
     alias monitor_reset="rm ~/Library/Preferences/com.apple.ActivityMonitor.plist"
 
     # proxy related with privoxy
-    set -x http_proxy http://127.0.0.1:1087
-    set -x https_proxy http://127.0.0.1:1087
+    # set -x http_proxy http://127.0.0.1:1087
+    # set -x https_proxy http://127.0.0.1:1087
     function set_proxy -d "set proxy forwarding to privoxy, then to the proxy server"
         set -g -x http_proxy http://127.0.0.1:1087
         and set -g -x https_proxy http://127.0.0.1:1087
@@ -60,9 +65,9 @@ end
 
 if test -f $HOME/.cargo/env
     # for rust
-    source $HOME/.cargo/env
     set -x RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
     set -x RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
+    set -x PATH $PATH ~/.cargo/bin
 end
 
 # use autojump if it exist
