@@ -73,7 +73,12 @@ end
 
 # use autojump if it exist
 if test (uname) = "Darwin"
-    [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+    # adapt for ARM darwin
+    if test -d /opt/homebrew
+        [ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
+    else
+        [ -f /usr/local/share/autojump/autojump.fish ]; and source /usr/local/share/autojump/autojump.fish
+    end
 else if test (uname) = "Linux"
     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 end
