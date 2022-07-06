@@ -14,7 +14,8 @@ if test (uname) = "Darwin"
 
     # read .linuxify
     if test -f $HOME/.linuxify
-        source $HOME/.linuxify
+        # simple use case: exec bash -c "source ~/.linuxify; exec fish"
+        bass source $HOME/.linuxify
     end
 
     if command -s go > /dev/null
