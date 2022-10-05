@@ -196,6 +196,7 @@ let g:spacevim_custom_plugins = [
     \ ['iloginow/vim-stylus'],
     \ ['sainnhe/sonokai'],
     \ ['sheerun/vim-polyglot'], 
+    \ ['ThePrimeagen/vim-be-good'], 
     \ ]
 " ############## Custom Plugins in SpaceVim End   ########################
 
