@@ -1,3 +1,4 @@
 set keep-english-in-normal
 set easymotion
 set showmode
+set relativenumber
