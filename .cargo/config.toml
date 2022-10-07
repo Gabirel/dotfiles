@@ -2,7 +2,10 @@
 vcs = "none"
 
 [source.crates-io]
-replace-with = 'ustc'
+replace-with = 'rsproxy'
+
+[source.rsproxy]
+registry = "https://rsproxy.cn/crates.io-index"
 
 [source.ustc]
 registry = "git://mirrors.ustc.edu.cn/crates.io-index"
