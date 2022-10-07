@@ -10,6 +10,9 @@ if test (uname) = "Darwin"
     # add Apple-Sillicon support for homebrew
     if test -d /opt/homebrew/bin
         set -x PATH $PATH /opt/homebrew/bin
+    else
+        # intel macos
+        set -x PATH $PATH /usr/local/bin
     end
 
     # read .linuxify
