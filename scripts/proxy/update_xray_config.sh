@@ -33,6 +33,9 @@ update_xray_core() {
 
     # 3. apply bin
     cp /tmp/core/xray /usr/local/bin/xray
+
+    # clean up
+    rm -rf /tmp/core.zip /tmp/core
 }
 
 update_config_xray() {
@@ -59,13 +62,12 @@ restart_services() {
     systemctl restart xray nginx
 }
 
-https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
-
 pre_install
 echo -e "${OK} ${GreenBG} 环境预安装完成${NC}"
 
 update_xray_core
-echo -e "${OK} ${GreenBG} xray core更新至 `xray version`${NC}"
+echo -e "${OK} ${GreenBG} xray core更新至以下版本：`${NC}"
+xray version
 
 update_config_xray
 echo -e "${OK} ${GreenBG} xray配置修改完成${NC}"
