@@ -14,6 +14,11 @@ NC="\033[0m"
 OK="${Green}[OK]${NC}"
 Error="${Red}[错误]${NC}"
 
+set_timezone() {
+    # timezone: Shanghai
+    timedatectl set-timezone Asia/Shanghai
+}
+
 # configure for server environment
 pre_install() {
     apt update -y
@@ -165,6 +170,9 @@ if [[ $# -ne 1 ]]; then
     exit 1
 fi
 domain=$1
+
+set_timezone
+echo -e "${OK} ${GreenBG} 时区修改完成${NC}"
 
 pre_install
 echo -e "${OK} ${GreenBG} 环境预安装完成${NC}"
