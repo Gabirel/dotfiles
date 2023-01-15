@@ -66,7 +66,7 @@ pre_install
 echo -e "${OK} ${GreenBG} 环境预安装完成${NC}"
 
 update_xray_core
-echo -e "${OK} ${GreenBG} xray core更新至以下版本：`${NC}"
+echo -e "${OK} ${GreenBG} xray core更新至以下版本：${NC}"
 xray version
 
 update_config_xray
