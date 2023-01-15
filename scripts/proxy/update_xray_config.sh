@@ -25,6 +25,9 @@ pre_install() {
 }
 
 update_xray_core() {
+    # need to stop first to avoid "text busy" issue
+    systemctl stop xray
+
     # 1. download latest version
     wget $CORE_LATEST_URL -O /tmp/core.zip
 
