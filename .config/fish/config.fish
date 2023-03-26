@@ -7,6 +7,11 @@ if test (uname) = "Darwin"
         set -x PATH $PATH /usr/local/sbin
     end
 
+    # add local bin
+    if test -d /usr/local/bin
+        set -x PATH $PATH /usr/local/bin
+    end
+
     # add Apple-Sillicon support for homebrew
     if test -d /opt/homebrew/bin
         set -x PATH $PATH /opt/homebrew/bin
