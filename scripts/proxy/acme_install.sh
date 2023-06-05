@@ -25,6 +25,9 @@ pre_install() {
 
     # 3. stop nginx
     systemctl stop nginx
+
+    # 4. remove existing cert
+    rm -rf /data
 }
 
 acme() {
@@ -59,6 +62,8 @@ acme() {
 after_install() {
     # make data readable
     chmod +r /data/*
+    systemctl start xray nginx
+    systemctl status xray
 }
 
 # domain must be set
