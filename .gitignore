@@ -1,1 +1,3 @@
 .cargo/bin
+.cargo/registry/
+.cargo/.package-cache
