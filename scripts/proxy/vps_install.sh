@@ -31,17 +31,16 @@ pre_install() {
 }
 
 install_trace() {
-    # 1. download besttrace
-    besttrace_dump="/tmp/besttrace.zip"
-    wget https://cdn.ipip.net/17mon/besttrace4linux.zip -O $besttrace_dump
+    # 1. download nexttrace
+    nexttrace_dump="/tmp/besttrace"
+    wget https://github.com/nxtrace/NTrace-V1/releases/latest/download/nexttrace_linux_amd64 -O $nexttrace_dump
     if [ $? -ne 0 ]; then
-        echo -e "${RedBG}>>> Failed to download besttrace!${NC}"
+        echo -e "${RedBG}>>> Failed to download nexttrace!${NC}"
         exit 1
     fi
 
-    unzip $besttrace_dump -d /tmp/
-    chmod +x /tmp/besttrace
-    ln -f /tmp/besttrace /usr/local/bin/besttrace
+    chmod +x $nexttrace_dump
+    ln -f $nexttrace_dump /usr/local/bin/nexttrace
 
     # 2. download worsttrace 
     wget https://wtrace.app/packages/linux/worsttrace -O /tmp/worsttrace
