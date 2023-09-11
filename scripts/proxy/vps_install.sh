@@ -41,15 +41,6 @@ install_trace() {
 
     chmod +x $nexttrace_dump
     ln -f $nexttrace_dump /usr/local/bin/nexttrace
-
-    # 2. download worsttrace 
-    wget https://wtrace.app/packages/linux/worsttrace -O /tmp/worsttrace
-    if [ $? -ne 0 ]; then
-        echo -e "${RedBG}>>> Failed to download worsttrace scripts!${NC}"
-        exit 1
-    fi
-    chmod +x /tmp/worsttrace
-    ln -f /tmp/worsttrace /usr/local/bin/worsttrace
 }
 
 # install xray related
