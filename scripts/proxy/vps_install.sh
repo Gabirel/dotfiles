@@ -32,7 +32,7 @@ pre_install() {
 
 install_trace() {
     # 1. download nexttrace
-    nexttrace_dump="/tmp/besttrace"
+    nexttrace_dump="/tmp/nexttrace"
     wget https://github.com/nxtrace/NTrace-V1/releases/latest/download/nexttrace_linux_amd64 -O $nexttrace_dump
     if [ $? -ne 0 ]; then
         echo -e "${RedBG}>>> Failed to download nexttrace!${NC}"
@@ -168,7 +168,7 @@ pre_install
 echo -e "${OK} ${GreenBG} 环境预安装完成${NC}"
 
 install_trace
-echo -e "${OK} ${GreenBG} 安装Trace工具(besttrace & worsttrace)完成${NC}"
+echo -e "${OK} ${GreenBG} 安装Trace工具(nexttrace)完成${NC}"
 
 install_xray
 echo -e "${OK} ${GreenBG} xray安装完成${NC}"
