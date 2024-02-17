@@ -119,16 +119,18 @@ install_crontab() {
 }
 
 config_xray() {
+    domain=$1
+
     # 1. generate new uuid, as well as other stuff
-    uuid=`xray uuid`
+    uuid=$(xray uuid)
     echo -e "${OK} ${GreenBG} uuid: $uuid ${NC}"
 
-    full_x25519_key=`xray x25519`
-    echo -e "${OK} ${GreenBG} full key: $full_x25519_key ${NC}"
-    private_key=`echo $str | cut -d ' ' -f 3`
-    export public_key=`echo $str | cut -d ' ' -f 6`
-
-    export short_id=`openssl rand -hex 8`
+    full_x25519_key=$(xray x25519)
+    private_key=$(echo $full_x25519_key | cut -d ' ' -f 3)
+    export public_key=$(echo $full_x25519_key | cut -d ' ' -f 6)
+    echo -e "${OK} ${GreenBG} private key: $private_key ${NC}"
+    echo -e "${OK} ${GreenBG} public key: $public_key ${NC}"
+    export short_id=$(openssl rand -hex 8)
     echo -e "${OK} ${GreenBG} short id: $short_id ${NC}"
 
     # 2. download template json using base64
@@ -137,12 +139,10 @@ config_xray() {
 
     # 3. replace new uuid
     jq --arg variable "$uuid" '.inbounds[].settings.clients[].id = $variable' template.json > /usr/local/etc/xray/config.json
-    jq --arg variable "$private_key" '$.inbounds[].streamSettings.realitySettings.privateKey = $private_key' /usr/local/etc/xray/config.json > /usr/local/etc/xray/config.json
-    jq --arg variable "$short_id" '$.inbounds[].streamSettings.realitySettings.shortIds.[0] = $short_id' /usr/local/etc/xray/config.json > /usr/local/etc/xray/config.json
-    if [ $? -ne 0 ]; then
-        echo -e "${RedBG}>>> Failed to config nginx conf domain!${NC}"
-        exit 1
-    fi
+    jq --arg variable  "$private_key" '.inbounds[0].streamSettings.realitySettings.privateKey = $variable' /usr/local/etc/xray/config.json > /usr/local/etc/xray/config.json
+    jq --arg variable "$short_id" '.inbounds[0].streamSettings.realitySettings.shortIds[0] = $variable' /usr/local/etc/xray/config.json > /usr/local/etc/xray/config.json
+    jq --arg variable "$domain" '.inbounds[0].streamSettings.realitySettings.serverNames[0] = $variable' /usr/local/etc/xray/config.json > /usr/local/etc/xray/config.json
+  
     echo -e "${OK} ${GreenBG} xray config 配置完成"
 }
 
@@ -219,7 +219,7 @@ echo -e "${OK} ${GreenBG} 安装Trace工具(nexttrace)完成${NC}"
 install_xray
 echo -e "${OK} ${GreenBG} xray安装完成${NC}"
 
-config_xray 
+config_xray $domain
 echo -e "${OK} ${GreenBG} xray配置完成${NC}"
 
 config_nginx $domain
