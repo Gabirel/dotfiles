@@ -203,7 +203,7 @@ gen_proxy_url() {
     uuid=$(jq -r '.inbounds[].settings.clients[].id' $current_config_xray)
     vless_url="vless://$uuid@$domain:443?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=$domain&fp=chrome&security=reality&pbk=$public_key&sid=$short_id#$domain"
     
-    echo -e "vless:\n"
+    echo -e "vless:"
     echo -e "$vless_url"
 }
 
