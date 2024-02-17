@@ -24,10 +24,23 @@ pre_install() {
     apt update -y
 
     # 1. install all needed tools
-    apt install socat cron nginx fish vim git wget curl htop tree iperf3 rsync jq unzip -y
+    apt install socat cron fish vim git wget curl htop tree iperf3 rsync jq unzip -y
 
     # 2. change default to fish
     chsh -s /usr/bin/fish
+}
+
+# install latest nginx
+install_nginx() {
+    # 1. install all needed tools
+    apt install -y gnupg2 ca-certificates lsb-release debian-archive-keyring \ 
+        && curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor > /usr/share/keyrings/nginx-archive-keyring.gpg \ 
+        && echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/debian `lsb_release -cs` nginx" > /etc/apt/sources.list.d/nginx.list \ 
+        && echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" > /etc/apt/preferences.d/99nginx \ 
+        && apt update -y && apt install -y nginx \ 
+        && mkdir -p /etc/systemd/system/nginx.service.d \ 
+        && echo -e "[Service]\nExecStartPost=/bin/sleep 0.1" > /etc/systemd/system/nginx.service.d/override.conf \ 
+        && systemctl daemon-reload
 }
 
 install_trace() {
@@ -196,6 +209,9 @@ echo -e "${OK} ${GreenBG} 时区修改完成${NC}"
 
 pre_install
 echo -e "${OK} ${GreenBG} 环境预安装完成${NC}"
+
+install_nginx
+echo -e "${OK} ${GreenBG} nginx最新版安装完成${NC}"
 
 install_trace
 echo -e "${OK} ${GreenBG} 安装Trace工具(nexttrace)完成${NC}"
