@@ -198,6 +198,15 @@ echo_xray_config() {
     echo -e "${OK} ${GreenBG} short id: $short_id ${NC}"
 }
 
+gen_vless_reality_url() {
+    current_config_xray='/usr/local/etc/xray/config.json'
+    uuid=$(jq -r '.inbounds[].settings.clients[].id' $current_config_xray)
+    vless_url="vless://$uuid@$domain:443?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=$domain&fp=chrome&security=reality&pbk=$public_key&sid=$short_id#$domain"
+    
+    echo -e "vless:\n"
+    echo -e "$vless_url"
+}
+
 # domain must be set
 if [[ $# -ne 1 ]]; then
     echo -e "${RedBG}>>> domain must be set!${NC}"
@@ -241,3 +250,5 @@ bbr_install
 echo -e "${OK} ${GreenBG} BBR + FQ 安装完成${NC}"
 
 echo_xray_config
+
+gen_vless_reality_url

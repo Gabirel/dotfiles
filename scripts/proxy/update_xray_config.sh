@@ -197,6 +197,15 @@ restart_services() {
     systemctl restart xray nginx
 }
 
+gen_proxy_url() {
+    current_config_xray='/usr/local/etc/xray/config.json'
+    uuid=$(jq -r '.inbounds[].settings.clients[].id' $current_config_xray)
+    vless_url="vless://$uuid@$domain:443?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=$domain&fp=chrome&security=reality&pbk=$public_key&sid=$short_id#$domain"
+    
+    echo -e "vless:\n"
+    echo -e "$vless_url"
+}
+
 # domain must be set
 if [[ $# -ne 1 ]]; then
     echo -e "${RedBG}>>> domain must be set!${NC}"
@@ -229,3 +238,5 @@ restart_services
 echo -e "${OK} ${GreenBG} xray和nginx服务重启完成${NC}"
 
 echo_xray_config
+
+gen_proxy_url
