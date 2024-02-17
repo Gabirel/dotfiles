@@ -20,7 +20,7 @@ domain=$1
 systemctl stop nginx &> /dev/null
 sleep 1
 "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" &> /dev/null
-"/root/.acme.sh"/acme.sh --installcert -d ${domain} --fullchainpath /data/v2ray.crt --keypath /data/v2ray.key --ecc
+"/root/.acme.sh"/acme.sh --installcert -d ${domain} --fullchain-file /data/fullchain.pem --key-file /data/private.key --ecc
 sleep 1
 chmod +r /data/*
 systemctl start nginx &> /dev/null
