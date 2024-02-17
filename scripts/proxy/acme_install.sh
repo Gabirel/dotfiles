@@ -48,7 +48,7 @@ acme() {
         echo -e "${OK} ${GreenBG} SSL 证书生成成功 ${NC}"
         sleep 2
         mkdir /data
-        if "$HOME"/.acme.sh/acme.sh --installcert -d "${domain}" --fullchain-file /data/fullchain.pem --key-file /data/private.key --ecc --force; then
+        if "$HOME"/.acme.sh/acme.sh --installcert -d "${domain}" --fullchain-file /data/fullchain.cer --key-file /data/private.key --ecc --force; then
             echo -e "${OK} ${GreenBG} 证书配置成功 ${NC}"
             sleep 2
         fi
