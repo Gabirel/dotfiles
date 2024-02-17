@@ -138,19 +138,19 @@ config_xray() {
     echo $template_json| base64 --decode > template.json
 
     # 3. replace new uuid
-    jq --arg variable "$uuid" '.inbounds[].settings.clients[].id = $variable' template.json > /usr/local/etc/xray/config.json
-    jq --arg variable  "$private_key" '.inbounds[0].streamSettings.realitySettings.privateKey = $variable' /usr/local/etc/xray/config.json > /usr/local/etc/xray/config.json
-    jq --arg variable "$short_id" '.inbounds[0].streamSettings.realitySettings.shortIds[0] = $variable' /usr/local/etc/xray/config.json > /usr/local/etc/xray/config.json
-    jq --arg variable "$domain" '.inbounds[0].streamSettings.realitySettings.serverNames[0] = $variable' /usr/local/etc/xray/config.json > /usr/local/etc/xray/config.json
+    jq --arg variable "$uuid" '.inbounds[].settings.clients[].id = $variable' template.json > template2.json
+    jq --arg variable  "$private_key" '.inbounds[0].streamSettings.realitySettings.privateKey = $variable' template2.json > template3.json
+    jq --arg variable "$short_id" '.inbounds[0].streamSettings.realitySettings.shortIds[0] = $variable' template3.json > template4.json
+    jq --arg variable "$domain" '.inbounds[0].streamSettings.realitySettings.serverNames[0] = $variable' template4.json > /usr/local/etc/xray/config.json
   
     echo -e "${OK} ${GreenBG} xray config 配置完成"
 }
 
 config_nginx() {
     domain=$1
-
+    nginx_conf="/etc/nginx/nginx.conf"
     # 1. backup original nginx config
-    mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
+    mv $nginx_conf /etc/nginx/nginx.conf.bak
 
     # 2. download nginx config
     wget https://raw.githubusercontent.com/Gabirel/dotfiles/master/data/config/nginx/nginx.conf -O /etc/nginx/nginx.conf
@@ -161,7 +161,7 @@ config_nginx() {
     echo -e "${OK} ${GreenBG} nginx配置文件下载完成"
 
     # 3. config domain to nginx file
-    sed -i "s/\${server_name}/$domain/g" nginx.conf
+    sed -i "s/\${server_name}/$domain/g" $nginx_conf
     if [ $? -ne 0 ]; then
         echo -e "${RedBG}>>> Failed to config nginx conf domain!${NC}"
         exit 1
@@ -188,7 +188,7 @@ bbr_install() {
 
 echo_xray_config() {
     current_config_xray='/usr/local/etc/xray/config.json'
-    uuid=`jq -r '.inbounds[].settings.clients[].id' $current_config_xray`
+    uuid=$(jq -r '.inbounds[].settings.clients[].id' $current_config_xray)
     echo -e "${OK} ${GreenBG} uuid: $uuid ${NC}"
     
     echo -e "${OK} ${GreenBG} public key: $public_key ${NC}"
