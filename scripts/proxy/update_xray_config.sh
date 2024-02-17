@@ -26,7 +26,10 @@ pre_install() {
 
 # install latest nginx
 install_nginx() {
-    # 1. install all needed tools
+    # 1. remove old nginx packages
+    apt remove nginx nginx-common
+
+    # 2. install all needed tools
     apt install -y gnupg2 ca-certificates lsb-release debian-archive-keyring \
         && curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor > /usr/share/keyrings/nginx-archive-keyring.gpg \
         && echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/debian `lsb_release -cs` nginx" > /etc/apt/sources.list.d/nginx.list \
