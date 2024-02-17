@@ -146,7 +146,7 @@ config_xray() {
     echo -e "${OK} ${GreenBG} xray config 配置完成"
 
     # clean up
-    rm -rf *.json
+    rm -rf template.json template2.json template3.json template4.json
 }
 
 config_nginx() {
