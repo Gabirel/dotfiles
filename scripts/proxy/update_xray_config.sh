@@ -108,6 +108,29 @@ config_xray() {
     rm -rf template.json template2.json template3.json template4.json
 }
 
+install_acme() {
+    systemctl stop nginx
+
+    domain=$1
+
+    # 1. download acme scripts
+    wget https://raw.githubusercontent.com/Gabirel/dotfiles/master/scripts/proxy/acme_install.sh
+    if [ $? -ne 0 ]; then
+        echo -e "${RedBG}>>> Failed to download acme scripts!${NC}"
+        exit 1
+    fi
+
+    # 2. chmod +x
+    chmod +x acme_install.sh
+
+    # start acme_install
+    bash ./acme_install.sh $domain
+    if [ $? -ne 0 ]; then
+        echo -e "${RedBG}>>> Failed to issue certificate with acme!${NC}"
+        exit 1
+    fi
+}
+
 echo_xray_config() {
     current_config_xray='/usr/local/etc/xray/config.json'
     uuid=$(jq -r '.inbounds[].settings.clients[].id' $current_config_xray)
@@ -115,6 +138,59 @@ echo_xray_config() {
     
     echo -e "${OK} ${GreenBG} public key: $public_key ${NC}"
     echo -e "${OK} ${GreenBG} short id: $short_id ${NC}"
+}
+
+install_acme() {
+    systemctl stop nginx
+
+    domain=$1
+
+    # 1. download acme scripts
+    wget https://raw.githubusercontent.com/Gabirel/dotfiles/master/scripts/proxy/acme_install.sh
+    if [ $? -ne 0 ]; then
+        echo -e "${RedBG}>>> Failed to download acme scripts!${NC}"
+        exit 1
+    fi
+
+    # 2. chmod +x
+    chmod +x acme_install.sh
+
+    # start acme_install
+    bash ./acme_install.sh $domain
+    if [ $? -ne 0 ]; then
+        echo -e "${RedBG}>>> Failed to issue certificate with acme!${NC}"
+        exit 1
+    fi
+}
+
+install_crontab() {
+    domain=$1
+
+    # 1. download ssl_update
+    wget https://raw.githubusercontent.com/Gabirel/dotfiles/master/scripts/proxy/ssl_update.sh
+    if [ $? -ne 0 ]; then
+        echo -e "${RedBG}>>> Failed to download ssl_update scripts!${NC}"
+        exit 1
+    fi
+
+    # 2. download update-v2raydat
+    wget https://raw.githubusercontent.com/Gabirel/dotfiles/master/scripts/proxy/update-v2raydat-vps.sh
+    if [ $? -ne 0 ]; then
+        echo -e "${RedBG}>>> Failed to download update_v2raydat scripts!${NC}"
+        exit 1
+    fi
+
+    # 2. chmod +x
+    chmod +x ssl_update.sh update-v2raydat-vps.sh
+
+    # 3. link crontab task
+    ln -f ssl_update.sh /usr/local/bin/ssl_update
+    ln -f update-v2raydat-vps.sh /usr/local/bin/update-v2raydat-vps
+
+    # 4. write to crontabs
+    crontab_path='/var/spool/cron/crontabs/root'
+    echo "0 3 * * * /usr/local/bin/ssl_update $domain >/dev/null 2>&1" >> $crontab_path
+    echo "9 3 * * * /usr/local/bin/update-v2raydat-vps >/dev/null 2>&1" >> $crontab_path
 }
 
 restart_services() {
@@ -142,6 +218,12 @@ echo -e "${OK} ${GreenBG} xray core更新完成${NC}"
 
 config_xray $domain
 echo -e "${OK} ${GreenBG} xray配置完成${NC}"
+
+install_acme $domain
+echo -e "${OK} ${GreenBG} acme安装完成${NC}"
+
+install_crontab $domain
+echo -e "${OK} ${GreenBG} crontab安装完成${NC}"
 
 restart_services
 echo -e "${OK} ${GreenBG} xray和nginx服务重启完成${NC}"
