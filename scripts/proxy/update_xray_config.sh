@@ -24,6 +24,29 @@ pre_install() {
     apt install jq -y
 }
 
+config_nginx() {
+    domain=$1
+    nginx_conf="/etc/nginx/nginx.conf"
+    # 1. backup original nginx config
+    mv $nginx_conf /etc/nginx/nginx.conf.bak
+
+    # 2. download nginx config
+    wget https://raw.githubusercontent.com/Gabirel/dotfiles/master/data/config/nginx/nginx.conf -O /etc/nginx/nginx.conf
+    if [ $? -ne 0 ]; then
+        echo -e "${RedBG}>>> Failed to download nginx conf!${NC}"
+        exit 1
+    fi
+    echo -e "${OK} ${GreenBG} nginx配置文件下载完成"
+
+    # 3. config domain to nginx file
+    sed -i "s/\${server_name}/$domain/g" $nginx_conf
+    if [ $? -ne 0 ]; then
+        echo -e "${RedBG}>>> Failed to config nginx conf domain!${NC}"
+        exit 1
+    fi
+    echo -e "${OK} ${GreenBG} nginx域名配置完成"
+}
+
 update_xray_core() {
     # need to stop first to avoid "text busy" issue
     systemctl stop xray
@@ -41,41 +64,70 @@ update_xray_core() {
     rm -rf /tmp/core.zip /tmp/core
 }
 
-update_config_xray() {
-    # 1. get current uuid
-    xray_config='/usr/local/etc/xray/config.json'
-    uuid=`jq -r '.inbounds[].settings.clients[].id' $xray_config`
-    echo -e "${OK} ${GreenBG} current uuid: $uuid ${NC}"
+config_xray() {
+    domain=$1
 
-    # 2. update xray json using base64
-    template_json="ewogICJsb2ciOiB7CiAgICAiYWNjZXNzIjogIi92YXIvbG9nL3hyYXkvYWNjZXNzLmxvZyIsCiAgICAiZXJyb3IiOiAiL3Zhci9sb2cveHJheS9lcnJvci5sb2ciLAogICAgImxvZ2xldmVsIjogIndhcm5pbmciCiAgfSwKICAiaW5ib3VuZHMiOiBbCiAgICB7CiAgICAgICJzbmlmZmluZyI6IHsKICAgICAgICAiZW5hYmxlZCI6IHRydWUsCiAgICAgICAgImRlc3RPdmVycmlkZSI6IFsKICAgICAgICAgICJodHRwIiwKICAgICAgICAgICJ0bHMiCiAgICAgICAgXQogICAgICB9LAogICAgICAicG9ydCI6IDQ0MywKICAgICAgInByb3RvY29sIjogInZsZXNzIiwKICAgICAgInNldHRpbmdzIjogewogICAgICAgICJjbGllbnRzIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAieHh4LXh4eC14eHgiLAogICAgICAgICAgICAiZmxvdyI6ICJ4dGxzLXJwcngtdmlzaW9uIiwKICAgICAgICAgICAgImxldmVsIjogMCwKICAgICAgICAgICAgImVtYWlsIjogImxvdmVAdjJmbHkub3JnIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImRlY3J5cHRpb24iOiAibm9uZSIsCiAgICAgICAgImZhbGxiYWNrcyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImRlc3QiOiAiODAwMSIsCiAgICAgICAgICAgICJ4dmVyIjogMQogICAgICAgICAgfSwKICAgICAgICAgIHsKICAgICAgICAgICAgImFscG4iOiAiaDIiLAogICAgICAgICAgICAiZGVzdCI6ICI4MDAyIiwKICAgICAgICAgICAgInh2ZXIiOiAxCiAgICAgICAgICB9CiAgICAgICAgXQogICAgICB9LAogICAgICAic3RyZWFtU2V0dGluZ3MiOiB7CiAgICAgICAgIm5ldHdvcmsiOiAidGNwIiwKICAgICAgICAic2VjdXJpdHkiOiAidGxzIiwKICAgICAgICAidGxzU2V0dGluZ3MiOiB7CiAgICAgICAgICAicmVqZWN0VW5rbm93blNuaSI6IHRydWUsCiAgICAgICAgICAibWluVmVyc2lvbiI6ICIxLjMiLAogICAgICAgICAgImFscG4iOiBbCiAgICAgICAgICAgICJoMiIsCiAgICAgICAgICAgICJodHRwLzEuMSIKICAgICAgICAgIF0sCiAgICAgICAgICAiY2VydGlmaWNhdGVzIjogWwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImNlcnRpZmljYXRlRmlsZSI6ICIvZGF0YS92MnJheS5jcnQiLAogICAgICAgICAgICAgICJrZXlGaWxlIjogIi9kYXRhL3YycmF5LmtleSIKICAgICAgICAgICAgfQogICAgICAgICAgXQogICAgICAgIH0KICAgICAgfQogICAgfQogIF0sCiAgIm91dGJvdW5kcyI6IFsKICAgIHsKICAgICAgInByb3RvY29sIjogImZyZWVkb20iLAogICAgICAic2V0dGluZ3MiOiB7CgogICAgICB9LAogICAgICAidGFnIjogImZyZWVkb20iCiAgICB9LAogICAgewogICAgICAicHJvdG9jb2wiOiAiYmxhY2tob2xlIiwKICAgICAgInNldHRpbmdzIjogewoKICAgICAgfSwKICAgICAgInRhZyI6ICJibG9jayIKICAgIH0KICBdLAogICJkbnMiOiB7CiAgICAic2VydmVycyI6IFsKICAgICAgIjEuMS4xLjEiCiAgICBdLAogICAgInF1ZXJ5U3RyYXRlZ3kiOiAiVXNlSVB2NCIKICB9LAogICJyb3V0aW5nIjogewogICAgImRvbWFpblN0cmF0ZWd5IjogIklQSWZOb25NYXRjaCIsCiAgICAicnVsZXMiOiBbCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJmaWVsZCIsCiAgICAgICAgIm91dGJvdW5kVGFnIjogImJsb2NrIiwKICAgICAgICAicHJvdG9jb2wiOiBbCiAgICAgICAgICAiYml0dG9ycmVudCIKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJmaWVsZCIsCiAgICAgICAgImlwIjogWwogICAgICAgICAgIjEuMS4xLjEiCiAgICAgICAgXSwKICAgICAgICAib3V0Ym91bmRUYWciOiAiZnJlZWRvbSIKICAgICAgfSwKICAgICAgewogICAgICAgICJ0eXBlIjogImZpZWxkIiwKICAgICAgICAiZG9tYWluIjogWwogICAgICAgICAgImdlb3NpdGU6Z29vZ2xlIgogICAgICAgIF0sCiAgICAgICAgIm91dGJvdW5kVGFnIjogImZyZWVkb20iCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJmaWVsZCIsCiAgICAgICAgImRvbWFpbiI6IFsKICAgICAgICAgICJnZW9zaXRlOmNhdGVnb3J5LWFkcy1hbGwiLAogICAgICAgICAgImdlb3NpdGU6Y24iCiAgICAgICAgXSwKICAgICAgICAib3V0Ym91bmRUYWciOiAiYmxvY2siCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJmaWVsZCIsCiAgICAgICAgImlwIjogWwogICAgICAgICAgImdlb2lwOmNuIiwKICAgICAgICAgICJnZW9pcDpwcml2YXRlIgogICAgICAgIF0sCiAgICAgICAgIm91dGJvdW5kVGFnIjogImJsb2NrIgogICAgICB9CiAgICBdCiAgfQp9"
-    echo $template_json| base64 --decode > /tmp/template.json
+    # 1. generate new uuid, as well as other stuff
+    uuid=$(xray uuid)
+    echo -e "${OK} ${GreenBG} uuid: $uuid ${NC}"
+
+    full_x25519_key=$(xray x25519)
+    private_key=$(echo $full_x25519_key | cut -d ' ' -f 3)
+    export public_key=$(echo $full_x25519_key | cut -d ' ' -f 6)
+    echo -e "${OK} ${GreenBG} private key: $private_key ${NC}"
+    echo -e "${OK} ${GreenBG} public key: $public_key ${NC}"
+    export short_id=$(openssl rand -hex 8)
+    echo -e "${OK} ${GreenBG} short id: $short_id ${NC}"
+
+    # 2. download template json using base64
+    template_json="ewogICJsb2ciOiB7CiAgICAiYWNjZXNzIjogIi92YXIvbG9nL3hyYXkvYWNjZXNzLmxvZyIsCiAgICAiZXJyb3IiOiAiL3Zhci9sb2cveHJheS9lcnJvci5sb2ciLAogICAgImxvZ2xldmVsIjogIndhcm5pbmciCiAgfSwKICAiaW5ib3VuZHMiOiBbCiAgICB7CiAgICAgICJzbmlmZmluZyI6IHsKICAgICAgICAiZW5hYmxlZCI6IHRydWUsCiAgICAgICAgImRlc3RPdmVycmlkZSI6IFsKICAgICAgICAgICJodHRwIiwKICAgICAgICAgICJ0bHMiCiAgICAgICAgXQogICAgICB9LAogICAgICAicG9ydCI6IDQ0MywKICAgICAgInByb3RvY29sIjogInZsZXNzIiwKICAgICAgInNldHRpbmdzIjogewogICAgICAgICJjbGllbnRzIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAieHh4LXh4eC14eHgiLAogICAgICAgICAgICAiZmxvdyI6ICJ4dGxzLXJwcngtdmlzaW9uIiwKICAgICAgICAgICAgImxldmVsIjogMCwKICAgICAgICAgICAgImVtYWlsIjogImxvdmVAdjJmbHkub3JnIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImRlY3J5cHRpb24iOiAibm9uZSIKICAgICAgfSwKICAgICAgInN0cmVhbVNldHRpbmdzIjogewogICAgICAgICJuZXR3b3JrIjogInRjcCIsCiAgICAgICAgInNlY3VyaXR5IjogInJlYWxpdHkiLAogICAgICAgICJyZWFsaXR5U2V0dGluZ3MiOiB7CiAgICAgICAgICAic2hvdyI6IGZhbHNlLAogICAgICAgICAgImRlc3QiOiAiODAwMSIsCiAgICAgICAgICAieHZlciI6IDEsCiAgICAgICAgICAic2VydmVyTmFtZXMiOiBbCiAgICAgICAgICAgICJ4eHgueHh4IgogICAgICAgICAgXSwKICAgICAgICAgICJwcml2YXRlS2V5IjogInh4eHh4LXh4eHh4LXh4eHh4IiwKICAgICAgICAgICJzaG9ydElkcyI6IFsKICAgICAgICAgICAgIjEyMzQ1Njc4IgogICAgICAgICAgXSwKICAgICAgICAgICJmaW5nZXJwcmludCI6ICJjaHJvbWUiCiAgICAgICAgfQogICAgICB9CiAgICB9CiAgXSwKICAib3V0Ym91bmRzIjogWwogICAgewogICAgICAicHJvdG9jb2wiOiAiZnJlZWRvbSIsCiAgICAgICJzZXR0aW5ncyI6IHt9LAogICAgICAidGFnIjogImZyZWVkb20iCiAgICB9LAogICAgewogICAgICAicHJvdG9jb2wiOiAiYmxhY2tob2xlIiwKICAgICAgInNldHRpbmdzIjoge30sCiAgICAgICJ0YWciOiAiYmxvY2siCiAgICB9CiAgXSwKICAiZG5zIjogewogICAgInNlcnZlcnMiOiBbCiAgICAgICIxLjEuMS4xIgogICAgXSwKICAgICJxdWVyeVN0cmF0ZWd5IjogIlVzZUlQdjQiCiAgfSwKICAicm91dGluZyI6IHsKICAgICJkb21haW5TdHJhdGVneSI6ICJJUElmTm9uTWF0Y2giLAogICAgInJ1bGVzIjogWwogICAgICB7CiAgICAgICAgInR5cGUiOiAiZmllbGQiLAogICAgICAgICJvdXRib3VuZFRhZyI6ICJibG9jayIsCiAgICAgICAgInByb3RvY29sIjogWwogICAgICAgICAgImJpdHRvcnJlbnQiCiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInR5cGUiOiAiZmllbGQiLAogICAgICAgICJpcCI6IFsKICAgICAgICAgICIxLjEuMS4xIgogICAgICAgIF0sCiAgICAgICAgIm91dGJvdW5kVGFnIjogImZyZWVkb20iCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAidHlwZSI6ICJmaWVsZCIsCiAgICAgICAgImRvbWFpbiI6IFsKICAgICAgICAgICJnZW9zaXRlOmdvb2dsZSIKICAgICAgICBdLAogICAgICAgICJvdXRib3VuZFRhZyI6ICJmcmVlZG9tIgogICAgICB9LAogICAgICB7CiAgICAgICAgInR5cGUiOiAiZmllbGQiLAogICAgICAgICJkb21haW4iOiBbCiAgICAgICAgICAiZ2Vvc2l0ZTpjYXRlZ29yeS1hZHMtYWxsIiwKICAgICAgICAgICJnZW9zaXRlOmNuIgogICAgICAgIF0sCiAgICAgICAgIm91dGJvdW5kVGFnIjogImJsb2NrIgogICAgICB9LAogICAgICB7CiAgICAgICAgInR5cGUiOiAiZmllbGQiLAogICAgICAgICJpcCI6IFsKICAgICAgICAgICJnZW9pcDpjbiIsCiAgICAgICAgICAiZ2VvaXA6cHJpdmF0ZSIKICAgICAgICBdLAogICAgICAgICJvdXRib3VuZFRhZyI6ICJibG9jayIKICAgICAgfQogICAgXQogIH0KfQ=="
+    echo $template_json| base64 --decode > template.json
 
     # 3. replace new uuid
-    jq --arg variable "$uuid" '.inbounds[].settings.clients[].id = $variable' /tmp/template.json > /usr/local/etc/xray/config.json
+    jq --arg variable "$uuid" '.inbounds[].settings.clients[].id = $variable' template.json > template2.json
+    jq --arg variable  "$private_key" '.inbounds[0].streamSettings.realitySettings.privateKey = $variable' template2.json > template3.json
+    jq --arg variable "$short_id" '.inbounds[0].streamSettings.realitySettings.shortIds[0] = $variable' template3.json > template4.json
+    jq --arg variable "$domain" '.inbounds[0].streamSettings.realitySettings.serverNames[0] = $variable' template4.json > /usr/local/etc/xray/config.json
+  
+    echo -e "${OK} ${GreenBG} xray config 配置完成"
+
+    # clean up
+    rm -rf template.json template2.json template3.json template4.json
 }
 
-echo_xray_uuid() {
+echo_xray_config() {
     current_config_xray='/usr/local/etc/xray/config.json'
-    uuid=`jq -r '.inbounds[].settings.clients[].id' $current_config_xray`
-    echo -e "${OK} ${GreenBG} Your uuid: $uuid ${NC}"
+    uuid=$(jq -r '.inbounds[].settings.clients[].id' $current_config_xray)
+    echo -e "${OK} ${GreenBG} uuid: $uuid ${NC}"
+    
+    echo -e "${OK} ${GreenBG} public key: $public_key ${NC}"
+    echo -e "${OK} ${GreenBG} short id: $short_id ${NC}"
 }
 
 restart_services() {
     systemctl restart xray nginx
 }
 
+# domain must be set
+if [[ $# -ne 1 ]]; then
+    echo -e "${RedBG}>>> domain must be set!${NC}"
+    exit 1
+fi
+domain=$1
+
 pre_install
 echo -e "${OK} ${GreenBG} 环境预安装完成${NC}"
 
-update_xray_core
-echo -e "${OK} ${GreenBG} xray core更新至以下版本：${NC}"
-xray version
+config_nginx $domain
+echo -e "${OK} ${GreenBG} nginx配置完成${NC}"
 
-update_config_xray
-echo -e "${OK} ${GreenBG} xray配置修改完成${NC}"
+update_xray_core
+echo -e "${OK} ${GreenBG} xray core更新完成${NC}"
+
+config_xray $domain
+echo -e "${OK} ${GreenBG} xray配置完成${NC}"
 
 restart_services
 echo -e "${OK} ${GreenBG} xray和nginx服务重启完成${NC}"
 
-echo_xray_uuid
+echo_xray_config
