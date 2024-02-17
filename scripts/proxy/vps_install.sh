@@ -144,6 +144,9 @@ config_xray() {
     jq --arg variable "$domain" '.inbounds[0].streamSettings.realitySettings.serverNames[0] = $variable' template4.json > /usr/local/etc/xray/config.json
   
     echo -e "${OK} ${GreenBG} xray config 配置完成"
+
+    # clean up
+    rm -rf *.json
 }
 
 config_nginx() {
