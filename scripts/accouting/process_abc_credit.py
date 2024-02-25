@@ -28,7 +28,14 @@ def parse_data(filename):
         data = f.readlines()
 
         result = []
-        for i in range(0, len(data), 7):
+        step = 7
+        i = 0
+
+        while True:
+            if i >= len(data):
+                break
+
+            print(f"i = #{i}")
             # 交易日
             t_date = data[i].strip()
 
@@ -41,14 +48,19 @@ def parse_data(filename):
             # 交易类型
             transaction_type = data[i + 3].strip()
 
+            # 商户名称可能是空的
+            step_back = 0
+            if transaction_type == '还他行/他人信用卡':
+                step_back = -1
+
             # 商户名称
-            merchant_name = data[i + 4].strip()
+            merchant_name = data[i + 4 + step_back].strip()
 
             # 交易金额
-            amount = data[i + 5].strip()
+            amount = data[i + 5 + step_back].strip()
 
             # 入账金额
-            stt_amount = data[i + 6].strip()
+            stt_amount = data[i + 6 + step_back].strip()
 
             result.append({
                 T_DATE:     t_date,
@@ -60,6 +72,9 @@ def parse_data(filename):
                 STT_AMT:    stt_amount,
             })
 
+            # next
+            i = i + step + step_back
+        pass
         return result
     pass
 
