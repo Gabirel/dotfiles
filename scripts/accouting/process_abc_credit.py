@@ -11,6 +11,7 @@ T_TYPE = 'type'  # 交易摘要
 T_MERCHANT = 'merchant'  # 交易地点
 T_AMT = 'amount'  # 交易金额/币种
 STT_AMT = 'stt_amount'  # 入账金额/币种(支出为-)
+FULL_DESCRIPTION = 'full_description'  # 金额值
 
 
 def parse_data(filename):
@@ -62,14 +63,18 @@ def parse_data(filename):
             # 入账金额
             stt_amount = data[i + 6 + step_back].strip()
 
+            # 完整描述
+            full_desc = f"{transaction_type}-{merchant_name}"
+
             result.append({
-                T_DATE:     t_date,
-                P_DATE:     p_date,
-                CARD_NO:    card_number,
-                T_TYPE:     transaction_type,
-                T_MERCHANT: merchant_name,
-                T_AMT:      amount,
-                STT_AMT:    stt_amount,
+                T_DATE:           t_date,
+                P_DATE:           p_date,
+                CARD_NO:          card_number,
+                T_TYPE:           transaction_type,
+                T_MERCHANT:       merchant_name,
+                T_AMT:            amount,
+                STT_AMT:          stt_amount,
+                FULL_DESCRIPTION: full_desc,
             })
 
             # next
@@ -88,8 +93,8 @@ def output_csv(data, filename):
       filename: 输出文件名
     """
 
-    header = [T_DATE, P_DATE, CARD_NO, T_TYPE, T_MERCHANT, T_AMT, STT_AMT]
-    with open(filename, "w", newline="") as f:
+    header = [T_DATE, P_DATE, CARD_NO, T_TYPE, T_MERCHANT, T_AMT, STT_AMT, FULL_DESCRIPTION]
+    with open(filename, "w", newline="", encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=header)
         writer.writeheader()
         writer.writerows(data)
