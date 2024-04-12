@@ -13,6 +13,7 @@ T_AMT = 'amount'  # 交易金额/币种
 STT_AMT = 'stt_amount'  # 入账金额/币种(支出为-)
 FULL_DESCRIPTION = 'full_description'  # 金额值
 
+
 def parse_data(filename):
     """
     从 txt 文本中解析数据并存储在 dict 中
@@ -38,9 +39,15 @@ def parse_data(filename):
             print(f"i = #{i}")
             # 交易日
             t_date = data[i].strip()
+            if t_date < '20240101':
+                print(f"parse error: t_date = '{t_date}'")
+                exit(-1)
 
             # 入账日期
             p_date = data[i + 1].strip()
+            if p_date < '20240101':
+                print(f"parse error: p_date = '{p_date}'")
+                exit(-1)
 
             # 卡号
             card_number = data[i + 2].strip()
@@ -50,7 +57,7 @@ def parse_data(filename):
 
             # 商户名称可能是空的
             step_back = 0
-            if transaction_type == '还他行/他人信用卡':
+            if transaction_type == '还他行/他人信用卡' and '/' in data[i + 4 + step_back]:
                 step_back = -1
             elif transaction_type.startswith('已免除年费'):
                 step_back = -1
