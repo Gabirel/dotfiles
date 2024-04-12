@@ -64,8 +64,8 @@ def parse_data(filename):
 
             # 商户名称
             merchant_name = data[i + 4 + step_back].strip()
-            if merchant_name.startswith('天天返现,消费时间'):
-                merchant_name = '天天返现,消费时间'
+            if merchant_name.startswith('天天返现,'):
+                merchant_name = '天天返现,交易时间'
 
             # 交易金额
             amount = data[i + 5 + step_back].strip()
