@@ -51,6 +51,8 @@ def parse_data(filename):
 
             # 卡号
             card_number = data[i + 2].strip()
+            if len(card_number) == 0:
+                card_number = '0513'
 
             # 交易类型
             transaction_type = data[i + 3].strip()
@@ -60,6 +62,8 @@ def parse_data(filename):
             if transaction_type == '还他行/他人信用卡' and '/' in data[i + 4 + step_back]:
                 step_back = -1
             elif transaction_type.startswith('已免除年费'):
+                step_back = -1
+            elif transaction_type.startswith('自动购汇转入外币'):
                 step_back = -1
 
             # 商户名称
