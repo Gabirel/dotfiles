@@ -52,7 +52,7 @@ def parse_data(filename):
             # 卡号
             card_number = data[i + 2].strip()
             if len(card_number) == 0:
-                card_number = '0513'
+                card_number = '0153'
 
             # 交易类型
             transaction_type = data[i + 3].strip()
