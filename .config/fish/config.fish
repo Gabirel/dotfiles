@@ -91,19 +91,19 @@ else if test (uname) = "Linux"
     [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 end
 
-# use exa for the good
-if command -s exa > /dev/null
-    alias exa="exa --group-directories-first"
-    alias l="exa"
-    alias ls="exa"
-    alias la="exa -a"
-    alias ll="exa -l"
-    alias lg="exa -l --git --header"
-    alias lt="exa -T"
-    alias lla="exa -la"
-    alias llt="exa -lT"
-    alias lat="exa -aT"
-    alias llat="exa -aT"
+# use eza for the good
+if command -s eza > /dev/null
+    alias eza="eza --group-directories-first"
+    alias l="eza"
+    alias ls="eza"
+    alias la="eza -a"
+    alias ll="eza -l"
+    alias lg="eza -l --git --header"
+    alias lt="eza -T"
+    alias lla="eza -la"
+    alias llt="eza -lT"
+    alias lat="eza -aT"
+    alias llat="eza -aT"
 else
     alias ls="ls --color=always -h --group-directories-first"
     alias lt="ls --human-readable --size -1 -S --classify"
