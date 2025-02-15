@@ -1,6 +1,9 @@
 # for macOS
 if test (uname) = "Darwin"
+    set -x HOMEBREW_BREW_GIT_REMOTE https://mirrors.ustc.edu.cn/brew.git
+    set -x HOMEBREW_CORE_GIT_REMOTE https://mirrors.ustc.edu.cn/homebrew-core.git
     set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
+    set -x HOMEBREW_API_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles/api
 
     # add sbin
     if test -d /usr/local/sbin/
@@ -39,10 +42,14 @@ if test (uname) = "Darwin"
 
     # ruby environment
     if command -s ruby-install > /dev/null
-        source /usr/local/share/chruby/chruby.fish
-        source /usr/local/share/chruby/auto.fish
+        bass source /usr/local/opt/chruby/share/chruby/chruby.sh
+        bass source /usr/local/opt/chruby/share/chruby/auto.sh
+        # add function
+        function chruby
+            bass source /usr/local/opt/chruby/share/chruby/chruby.sh \; chruby $argv
+        end
         # make sure version is correct
-        chruby ruby-3.1.1
+        chruby ruby-3.4.1
     end
 
     # add latex binary
