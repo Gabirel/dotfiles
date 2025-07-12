@@ -6,7 +6,7 @@ import os
 
 T_DATE = 'T_Date'  # 交易日
 P_DATE = 'PDate'  # 入账日期
-MEMO = 'Memo'  # 交易的顺序
+NUMBER = 'number'  # 交易的顺序
 CARD_NO = 'card_no'  # 卡号后四位
 T_AMT = 'amount'  # 交易金额/币种
 STT_AMT = 'stt_amount'  # 入账金额/币种(支出为-)
@@ -37,7 +37,7 @@ def parse_data(filename):
         result = []
         step = 6
         i = 0
-        memo = 0
+        number = 0
         prev_date = '20200101'
 
         while True:
@@ -59,10 +59,10 @@ def parse_data(filename):
 
             # 若日期发生未改变，则递增；否则状态更新重置为1
             if prev_date == p_date:
-                memo += 1
+                number += 1
             else:
                 prev_date = p_date
-                memo = 1
+                number = 1
 
             # 卡号
             card_number = data[i + 2].strip()
@@ -82,7 +82,7 @@ def parse_data(filename):
             result.append({
                 T_DATE:           t_date,
                 P_DATE:           p_date,
-                MEMO:             str(memo),
+                NUMBER:           str(number),
                 CARD_NO:          card_number,
                 T_AMT:            amount,
                 STT_AMT:          stt_amount,
@@ -105,7 +105,7 @@ def output_csv(data, filename):
       filename: 输出文件名
     """
 
-    header = [T_DATE, P_DATE, MEMO, CARD_NO, T_AMT, STT_AMT, FULL_DESCRIPTION]
+    header = [T_DATE, P_DATE, NUMBER, CARD_NO, T_AMT, STT_AMT, FULL_DESCRIPTION]
     with open(filename, "w", newline="", encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=header)
         writer.writeheader()
