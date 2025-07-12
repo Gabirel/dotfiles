@@ -1,3 +1,3 @@
-T_Date,PDate,card_no,type,merchant,amount,stt_amount,full_description
-20231106,20231106,1234,测试,测试公司,0.50/CNY,0.50/CNY,测试-测试公司
-20231106,20231106,1234,网上消费,测试公司2,21.00/CNY,-21.00/CNY,网上消费-测试公司2
+T_Date,PDate,Memo,card_no,amount,stt_amount,full_description
+20250603,20250603,1,1234,1234.13/CNY,1234.13/CNY,跨行转账（交易附言：还他行/他人信用卡）张三
+20250602,20250602,1,1234,20.05/CNY,-20.05/CNY,网上消费 支付平台，张三信息技术有限公司
