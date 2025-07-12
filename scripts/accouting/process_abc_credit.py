@@ -8,12 +8,13 @@ T_DATE = 'T_Date'  # 交易日
 P_DATE = 'PDate'  # 入账日期
 NUMBER = 'number'  # 交易的顺序
 CARD_NO = 'card_no'  # 卡号后四位
+MERCHANT = 'merchant'  # 商户名称
 T_AMT = 'amount'  # 交易金额/币种
 STT_AMT = 'stt_amount'  # 入账金额/币种(支出为-)
 FULL_DESCRIPTION = 'full_description'  # 金额值
 
 
-def generate_full_date(raw:str) -> str:
+def generate_full_date(raw: str) -> str:
     """
     生成完整的日期字符串: 25010101 -> 20250101
     """
@@ -84,6 +85,7 @@ def parse_data(filename):
                 P_DATE:           p_date,
                 NUMBER:           str(number),
                 CARD_NO:          card_number,
+                MERCHANT:         transaction_desc,
                 T_AMT:            amount,
                 STT_AMT:          stt_amount,
                 FULL_DESCRIPTION: full_desc,
@@ -105,7 +107,7 @@ def output_csv(data, filename):
       filename: 输出文件名
     """
 
-    header = [T_DATE, P_DATE, NUMBER, CARD_NO, T_AMT, STT_AMT, FULL_DESCRIPTION]
+    header = [T_DATE, P_DATE, NUMBER, CARD_NO, MERCHANT, T_AMT, STT_AMT, FULL_DESCRIPTION]
     with open(filename, "w", newline="", encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=header)
         writer.writeheader()
