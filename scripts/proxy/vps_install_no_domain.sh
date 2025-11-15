@@ -24,7 +24,7 @@ pre_install() {
     apt update -y
 
     # 1. install all needed tools
-    apt install cron fish vim git wget curl htop tree iperf3 rsync jq unzip -y
+    apt install cron fish vim git wget curl htop tree iperf3 rsync jq unzip fail2ban -y
 
     # 2. change default to fish
     chsh -s /usr/bin/fish
