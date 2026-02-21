@@ -1,0 +1,9 @@
+theme = iTerm2 Tango Dark
+command = fish
+font-size = 20
+font-family = "JetBrains Mono"
+font-family = "PingFang SC"
+font-family = "Hiragino Sans GB"
+cursor-style = block
+shell-integration-features = no-cursor
+copy-on-select = clipboard
