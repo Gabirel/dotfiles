@@ -15,6 +15,17 @@ if test (uname) = "Darwin"
         set -x PATH $PATH /usr/local/bin
     end
 
+    # add opt bin, mainly for macports
+    if test -d /opt/local/bin
+        set -x PATH $PATH /opt/local/bin
+        set -x PATH $PATH /opt/local/sbin
+    end
+
+    # add local bin
+    if test -d $HOME/.local/bin
+        set -x PATH $PATH $HOME/.local/bin
+    end
+
     # add Apple-Sillicon support for homebrew
     if test -d /opt/homebrew/bin
         set -x PATH $PATH /opt/homebrew/bin
@@ -40,14 +51,14 @@ if test (uname) = "Darwin"
         set -x PATH $PATH /usr/local/Cellar/node/14.5.0/bin
     end
 
+    # opencode
+    fish_add_path $HOME/.opencode/bin
+    if command -s opencode > /dev/null
+        abbr -a oc opencode
+    end
+
     # ruby environment
     if command -s ruby-install > /dev/null
-        bass source /usr/local/opt/chruby/share/chruby/chruby.sh
-        bass source /usr/local/opt/chruby/share/chruby/auto.sh
-        # add function
-        function chruby
-            bass source /usr/local/opt/chruby/share/chruby/chruby.sh \; chruby $argv
-        end
         # make sure version is correct
         chruby ruby-3.4.1
     end
@@ -70,6 +81,11 @@ if test (uname) = "Darwin"
     function unset_proxy -d "unset proxy forwarding to privoxy"
         set -e http_proxy
         and set -e https_proxy
+    end
+
+    # cat then copy
+    function pcopy
+      cat $argv | pbcopy
     end
 end
 
