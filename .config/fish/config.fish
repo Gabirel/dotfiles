@@ -10,11 +10,6 @@ if test (uname) = "Darwin"
         set -x PATH $PATH /usr/local/sbin
     end
 
-    # add local bin
-    if test -d /usr/local/bin
-        set -x PATH $PATH /usr/local/bin
-    end
-
     # add opt bin, mainly for macports
     if test -d /opt/local/bin
         set -x PATH $PATH /opt/local/bin
@@ -26,12 +21,9 @@ if test (uname) = "Darwin"
         set -x PATH $PATH $HOME/.local/bin
     end
 
-    # add Apple-Sillicon support for homebrew
+    # add Homebrew bin
     if test -d /opt/homebrew/bin
-        set -x PATH $PATH /opt/homebrew/bin
-    else
-        # intel macos
-        set -x PATH $PATH /usr/local/bin
+        fish_add_path --prepend /opt/homebrew/bin
     end
 
     # read .linuxify
@@ -84,7 +76,7 @@ if test (uname) = "Darwin"
     end
 
     # cat then copy
-    function pcopy
+    function pcat
       cat $argv | pbcopy
     end
 end
