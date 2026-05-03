@@ -129,8 +129,8 @@ config_xray() {
     echo -e "${OK} ${GreenBG} uuid: $uuid ${NC}"
 
     full_x25519_key=$(xray x25519)
-    private_key=$(echo $full_x25519_key | cut -d ' ' -f 3)
-    export public_key=$(echo $full_x25519_key | cut -d ' ' -f 6)
+    private_key=$(printf '%s\n' "$full_x25519_key" | grep '^PrivateKey:' | cut -d ' ' -f 2)
+    export public_key=$(printf '%s\n' "$full_x25519_key" | grep '^Password (PublicKey):' | cut -d ' ' -f 3)
     echo -e "${OK} ${GreenBG} private key: $private_key ${NC}"
     echo -e "${OK} ${GreenBG} public key: $public_key ${NC}"
     export short_id=$(openssl rand -hex 8)
