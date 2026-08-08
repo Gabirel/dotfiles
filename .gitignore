@@ -2,3 +2,23 @@
 .cargo/registry/
 .cargo/.package-cache
 .idea
+
+# Fish runtime state
+.config/fish/fish_variables
+
+# Cargo/Rustup generated files
+.cargo/bin/
+.cargo/registry/
+.cargo/.package-cache
+.cargo/.global-cache
+.cargo/.package-cache-mutate
+.cargo/env
+.cargo/env.fish
+.cargo/env.tcsh
+
+# Fcitx runtime state
+.config/fcitx/dbus/
+.config/fcitx/log/
+.config/fcitx/cached_layout
+.config/fcitx/clipboard/history.dat
+.config/fcitx/profile_*

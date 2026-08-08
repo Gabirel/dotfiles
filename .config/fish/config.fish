@@ -18,7 +18,7 @@ if test (uname) = "Darwin"
 
     # add local bin
     if test -d $HOME/.local/bin
-        set -x PATH $PATH $HOME/.local/bin
+	set -x PATH $HOME/.local/bin $PATH
     end
 
     # add Homebrew bin
@@ -38,9 +38,9 @@ if test (uname) = "Darwin"
         set -x PATH $PATH $GOPATH/bin
     end
 
-    # add the npm bin path 
-    if command -s npm > /dev/null
-        set -x PATH $PATH /usr/local/Cellar/node/14.5.0/bin
+    # use fnm for node
+    if command -s fnm > /dev/null
+        fnm env --use-on-cd | source
     end
 
     # opencode
@@ -157,3 +157,11 @@ end
 alias git="env LANG=en_GB git"
 alias pcs="proxychains4"
 alias cpv='rsync -ah --info=progress2'
+
+# Pi: `pi` keeps normal mode; `pp` starts Plannotator plan mode.
+function pp --description "Start Pi in plan mode"
+    command pi --plan $argv
+end
+
+# Ensure pagers decode UTF-8 output (for example, Git diffs).
+set -gx LESSCHARSET utf-8
