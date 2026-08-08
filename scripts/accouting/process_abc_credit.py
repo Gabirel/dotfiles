@@ -33,69 +33,68 @@ def parse_data(filename):
     """
 
     with open(filename, "r") as f:
-        data = f.readlines()
+        data = [line.strip() for line in f if line.strip()]
 
-        result = []
+    if not data:
+        return []
+
+    if all(len(line.split('\t')) == 6 for line in data):
+        records = [line.split('\t') for line in data]
+    else:
         step = 6
-        i = 0
-        number = 0
-        prev_date = '20200101'
+        if len(data) % step != 0:
+            raise ValueError(f"parse error: incomplete record, got {len(data)} non-empty lines")
+        records = [data[i:i + step] for i in range(0, len(data), step)]
 
-        while True:
-            if i >= len(data):
-                break
+    result = []
+    number = 0
+    prev_date = '20200101'
 
-            print(f"i = #{i}")
-            # 交易日
-            t_date = generate_full_date(data[i].strip())
-            if t_date < '20240101':
-                print(f"parse error: t_date = '{t_date}'")
-                exit(-1)
+    for row_no, record in enumerate(records, 1):
+        # 交易日
+        t_date = generate_full_date(record[0].strip())
+        if t_date < '20240101':
+            raise ValueError(f"parse error: row {row_no}: t_date = '{t_date}'")
 
-            # 入账日期
-            p_date = generate_full_date(data[i + 1].strip())
-            if p_date < '20240101':
-                print(f"parse error: p_date = '{p_date}'")
-                exit(-1)
+        # 入账日期
+        p_date = generate_full_date(record[1].strip())
+        if p_date < '20240101':
+            raise ValueError(f"parse error: row {row_no}: p_date = '{p_date}'")
 
-            # 若日期发生未改变，则递增；否则状态更新重置为1
-            if prev_date == p_date:
-                number += 1
-            else:
-                prev_date = p_date
-                number = 1
+        # 若日期发生未改变，则递增；否则状态更新重置为1
+        if prev_date == p_date:
+            number += 1
+        else:
+            prev_date = p_date
+            number = 1
 
-            # 卡号
-            card_number = data[i + 2].strip()
+        # 卡号
+        card_number = record[2].strip()
 
-            # 交易描述
-            transaction_desc = data[i + 3].strip()
+        # 交易描述
+        transaction_desc = record[3].strip()
 
-            # 交易金额
-            amount = data[i + 4].strip()
+        # 交易金额
+        amount = record[4].strip()
 
-            # 入账金额
-            stt_amount = data[i + 5].strip()
+        # 入账金额
+        stt_amount = record[5].strip()
 
-            # 完整描述
-            full_desc = transaction_desc
+        # 完整描述
+        full_desc = transaction_desc
 
-            result.append({
-                T_DATE:           t_date,
-                P_DATE:           p_date,
-                NUMBER:           str(number),
-                CARD_NO:          card_number,
-                MERCHANT:         transaction_desc,
-                T_AMT:            amount,
-                STT_AMT:          stt_amount,
-                FULL_DESCRIPTION: full_desc,
-            })
+        result.append({
+            T_DATE:           t_date,
+            P_DATE:           p_date,
+            NUMBER:           str(number),
+            CARD_NO:          card_number,
+            MERCHANT:         transaction_desc,
+            T_AMT:            amount,
+            STT_AMT:          stt_amount,
+            FULL_DESCRIPTION: full_desc,
+        })
 
-            # next
-            i = i + step
-        pass
-        return result
-    pass
+    return result
 
 
 def output_csv(data, filename):
